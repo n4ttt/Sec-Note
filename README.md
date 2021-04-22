@@ -1,4 +1,4 @@
-# Sec.note
+# Sec-Note
 About Sec
 
 -Java
