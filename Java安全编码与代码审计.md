@@ -1,10 +1,10 @@
 # Java安全编码与代码审计
 ### **概述**
-这里主要讲一些Java安全编码与代码审计的知识，收集Java基础知识学习资料，重点在于Java的代码审计方面。
+*这里主要讲一些Java安全编码与代码审计的知识，收集Java基础知识学习资料，重点在于Java的代码审计方面。*
 
 ### **XXE**
-**介绍**
-XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素。文档类型定义(DTD)的作用是定义 XML 文档的合法构建模块。DTD 可以在 XML 文档内声明，也可以外部引用。
+**介绍**<br>
+XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素。文档类型定义(DTD)的作用是定义 XML 文档的合法构建模块。DTD 可以在 XML 文档内声明，也可以外部引用。<br>
 - 当允许引用外部实体时，恶意攻击者即可构造恶意内容访问服务器资源,如读取passwd文件：
 ```java
 <?xml version="1.0" encoding="UTF-8"?>
@@ -12,7 +12,7 @@ XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元�
 <!ENTITY test SYSTEM "file:///ect/passwd">]>
 <msg>&test;</msg>
 ```
-**漏洞示例**
+**漏洞示例**<br>
 以org.dom4j.io.SAXReader为例，仅展示部分代码片段：
 ```java
 String xmldata = request.getParameter("data");
@@ -30,7 +30,7 @@ if (iter1.hasNext()) {
 }
 ...
 ```
-**代码审计**
+**代码审计**<br>
 XML解析一般在导入配置、数据传输接口等场景可能会用到，涉及到XML文件处理的场景可留意下XML解析器是否禁用外部实体，从而判断是否存在XXE。部分XML解析接口如下：
 ```java
 javax.xml.parsers.DocumentBuilder
@@ -48,11 +48,11 @@ javax.xml.bind.Unmarshaller
 javax.xml.xpath.XPathExpression
 ...
 ```
-**修复建议**
+**修复建议**<br>
 使用XML解析器时需要设置其属性，禁止使用外部实体，以上例中SAXReader为例，安全的使用方式如下:
 ```java
 sax.setFeature("http://apache.org/xml/features/disallow-doctype-decl", true);
 sax.setFeature("http://xml.org/sax/features/external-general-entities", false);
 sax.setFeature("http://xml.org/sax/features/external-parameter-entities", false);
 ```
-其他XML解析器的安全使用方式可以参考：https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html
+其他XML解析器的安全使用方式可以参考：*https://cheatsheetseries.owasp.org/cheatsheets/XML_External_Entity_Prevention_Cheat_Sheet.html*
