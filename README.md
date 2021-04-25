@@ -1,6 +1,6 @@
 # Sec-Note
 ## **About Sec-note**
-![avatar](http://img11.360buyimg.com/n1/jfs/t22096/92/1280095121/218636/25707f52/5b232989N5835a513.jpg)
+![avatar](http://img11.360buyimg.com/n1/jfs/t22096/92/1280095121/218636/25707f52/5b232989N5835a513.jpg)<br>
 *Good good study,day day up!<br>
 1.做好规划；<br>
 2.记录成长；<br>
