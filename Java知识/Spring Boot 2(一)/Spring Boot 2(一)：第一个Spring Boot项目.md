@@ -12,11 +12,12 @@ Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用�
 - 2、选择 Spring Initializr，Next出现默认https://start.spring.io/ 的选项
 - 3、继续Next出现跟上面一样的内容，填好后确定
 ### （三）项目结构介绍
-***Spring Boot的项目结构共三个文件：***
+**Spring Boot的项目结构共三个文件：**
 - src/main/java           程序开发以及主程序入口
 - src/main/resources      配置文件
 - src/test/java           测试程序<br><br>
-***另外，Spring Boot建议的项目结构如下：***
+
+**另外，Spring Boot建议的项目结构如下：**
 ```java
 com
   +- example
