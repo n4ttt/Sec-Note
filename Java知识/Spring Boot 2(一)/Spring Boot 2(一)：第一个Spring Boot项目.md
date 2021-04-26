@@ -16,6 +16,7 @@ Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用�
 - src/main/java           程序开发以及主程序入口
 - src/main/resources      配置文件
 - src/test/java           测试程序<br>
+
 **另外，Spring Boot建议的项目结构如下：**
 ```java
 com
@@ -38,6 +39,7 @@ com
 - 2、model 目录主要用于实体与数据访问层（Repository）
 - 3、service 层主要是业务类代码
 - 4、controller 负责页面访问控制<br>
+
 上述默认配置简单方便、还可以自行修改；最后启动Application.java方法即可。
 ### （四）引入web模块
 1、pom.xml中添加支持web的模块：
@@ -52,6 +54,7 @@ pom.xml 文件中默认有两个模块：<br>
 包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。<br>
 - 测试模块：spring-boot-starter-test<br>
 包括 JUnit、Hamcrest、Mockito。<br><br>
+
 2、编写 Controller 内容：
 ```java
 @RestController
