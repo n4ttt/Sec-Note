@@ -5,9 +5,8 @@ Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用�
 ## 第一个Spring Boot项目
 ### （一）maven构建项目
 - 1、访问https://start.spring.io/
-- 2、选择maven project、Spring Boot版本、Project信息
-- 3、点击generate下载项目代码
-- 4、解压后，使用 IDEA导入项目，File -> New -> Model from Existing Source.. -> 选择解压后的文件夹 -> Finish，选择 Maven 一路 Next，OK done!
+- 2、选择maven project、Spring Boot版本、Project信息，点击generate下载项目代码
+- 3、解压后，使用 IDEA导入项目，File -> New -> Model from Existing Source.. -> 选择解压后的文件夹 -> Finish，选择 Maven 一路 Next，OK done!
 ### （二）IDEA构建项目
 - 1、选择 File -> New -> Project，弹出新建项目的框
 - 2、选择 Spring Initializr，Next出现默认https://start.spring.io/ 的选项
@@ -38,7 +37,7 @@ com
 - 1、Application.java 建议放到根目录下面,主要用于做一些框架配置
 - 2、model 目录主要用于实体与数据访问层（Repository）
 - 3、service 层主要是业务类代码
-- 4、controller 负责页面访问控制
+- 4、controller 负责页面访问控制<br>
 上述默认配置简单方便、还可以自行修改；最后启动Application.java方法即可。
 ### （四）引入web模块
 1、pom.xml中添加支持web的模块：
@@ -48,11 +47,11 @@ com
     <artifactId>spring-boot-starter-web</artifactId>
 </dependency>
 ```
-pom.xml 文件中默认有两个模块：
+pom.xml 文件中默认有两个模块：<br>
 - 核心模块：spring-boot-starter
-包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。
+包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。<br>
 - 测试模块：spring-boot-starter-test
-包括 JUnit、Hamcrest、Mockito。
+包括 JUnit、Hamcrest、Mockito。<br>
 2、编写 Controller 内容：
 ```java
 @RestController
@@ -63,7 +62,7 @@ public class HelloWorldController {
     }
 }
 ```
-@RestController 的意思就是 Controller 里面的方法都以 json 格式输出，不用再写什么 jackjson 配置的了！
+@RestController 的意思就是 Controller 里面的方法都以 json 格式输出，不用再写什么 jackjson 配置的了！<br>
 3、启动主程序，打开浏览器访问http://localhost:8080 
 ### （五）单元测试
 打开的src/test/下的测试入口，编写简单的 http 请求来测试；使用 mockmvc 进行，利用MockMvcResultHandlers.print()打印出执行结果。
