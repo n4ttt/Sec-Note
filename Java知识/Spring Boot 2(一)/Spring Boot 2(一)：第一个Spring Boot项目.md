@@ -40,7 +40,7 @@ com
 - 3、service 层主要是业务类代码
 - 4、controller 负责页面访问控制<br>
 
-上述默认配置简单方便、还可以自行修改；最后启动Application.java方法即可。
+*上述默认配置简单方便、还可以自行修改；最后启动Application.java方法即可。*
 ### （四）引入web模块
 1、pom.xml中添加支持web的模块：
 ```java
@@ -53,7 +53,7 @@ pom.xml 文件中默认有两个模块：<br>
 - 核心模块：spring-boot-starter<br>
 包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。<br>
 - 测试模块：spring-boot-starter-test<br>
-包括 JUnit、Hamcrest、Mockito。<br><br>
+包括 JUnit、Hamcrest、Mockito。<br>
 
 2、编写 Controller 内容：
 ```java
@@ -65,7 +65,7 @@ public class HelloWorldController {
     }
 }
 ```
-@RestController 的意思就是 Controller 里面的方法都以 json 格式输出，不用再写什么 jackjson 配置的了！<br><br>
+@RestController 的意思就是 Controller 里面的方法都以 json 格式输出，不用再写什么 jackjson 配置的了！<br>
 3、启动主程序，打开浏览器访问http://localhost:8080<br>
 ### （五）单元测试
 打开的src/test/下的测试入口，编写简单的 http 请求来测试；使用 mockmvc 进行，利用MockMvcResultHandlers.print()打印出执行结果。
