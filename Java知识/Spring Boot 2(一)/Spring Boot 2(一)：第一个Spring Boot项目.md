@@ -15,7 +15,7 @@ Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用�
 ***Spring Boot的项目结构共三个文件：***
 - src/main/java           程序开发以及主程序入口
 - src/main/resources      配置文件
-- src/test/java           测试程序
+- src/test/java           测试程序<br>
 ***另外，Spring Boot建议的项目结构如下：***
 ```java
 com
@@ -48,9 +48,9 @@ com
 </dependency>
 ```
 pom.xml 文件中默认有两个模块：<br>
-- 核心模块：spring-boot-starter
+- 核心模块：spring-boot-starter<br>
 包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。<br>
-- 测试模块：spring-boot-starter-test
+- 测试模块：spring-boot-starter-test<br>
 包括 JUnit、Hamcrest、Mockito。<br>
 2、编写 Controller 内容：
 ```java
@@ -90,8 +90,3 @@ public class HelloTests {
 
 ## 总结
 使用 Spring Boot 可以非常方便、快速搭建项目，使我们不用关心框架之间的兼容性，适用版本等各种问题，我们想使用任何东西，仅仅添加一个配置就可以，所以使用 Spring Boot 非常适合构建微服务。
-
-
-
-
-
