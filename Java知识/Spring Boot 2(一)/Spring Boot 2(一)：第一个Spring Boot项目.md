@@ -16,6 +16,7 @@ Spring Boot 是由 Pivotal 团队提供的全新框架，其设计目的是用�
 - src/main/java           程序开发以及主程序入口
 - src/main/resources      配置文件
 - src/test/java           测试程序<br>
+<br>
 ***另外，Spring Boot建议的项目结构如下：***
 ```java
 com
@@ -52,6 +53,7 @@ pom.xml 文件中默认有两个模块：<br>
 包括自动配置支持、日志和 YAML，如果引入了 spring-boot-starter-web web 模块可以去掉此配置，因为 spring-boot-starter-web 自动依赖了 spring-boot-starter。<br>
 - 测试模块：spring-boot-starter-test<br>
 包括 JUnit、Hamcrest、Mockito。<br>
+<br>
 2、编写 Controller 内容：
 ```java
 @RestController
@@ -63,6 +65,7 @@ public class HelloWorldController {
 }
 ```
 @RestController 的意思就是 Controller 里面的方法都以 json 格式输出，不用再写什么 jackjson 配置的了！<br>
+<br>
 3、启动主程序，打开浏览器访问http://localhost:8080 
 ### （五）单元测试
 打开的src/test/下的测试入口，编写简单的 http 请求来测试；使用 mockmvc 进行，利用MockMvcResultHandlers.print()打印出执行结果。
