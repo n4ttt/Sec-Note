@@ -6,12 +6,12 @@
 - [Spring Boot(四)：Thymeleaf 使用详解](http://www.ityouknow.com/springboot/2016/05/01/spring-boot-thymeleaf.html)</br>
 - [Spring Boot(五)：Spring Boot Jpa 的使用](http://www.ityouknow.com/springboot/2016/08/20/spring-boot-jpa.html)</br>
 - [Spring Boot(六)：如何优雅的使用 Mybatis](http://www.ityouknow.com/springboot/2016/11/06/spring-boot-mybatis.html)</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
+- [Spring Boot(七)：Mybatis 多数据源最简解决方案](http://www.ityouknow.com/springboot/2016/11/25/spring-boot-multi-mybatis.html)</br>
+- [Spring Boot(八)：RabbitMQ 详解](http://www.ityouknow.com/springboot/2016/11/30/spring-boot-rabbitMQ.html)</br>
+- [Spring Boot(九)：定时任务](http://www.ityouknow.com/springboot/2016/12/02/spring-boot-scheduler.html)</br>
+- [Spring Boot (十)：邮件服务](http://www.ityouknow.com/springboot/2017/05/06/spring-boot-mail.html)</br>
+- [Spring Boot(十一)：Spring Boot 中 MongoDB 的使用](http://www.ityouknow.com/springboot/2017/05/08/spring-boot-mongodb.html)</br>
+- [Spring Boot(十二)：Spring Boot 如何测试打包部署](http://www.ityouknow.com/springboot/2017/05/09/spring-boot-deploy.html)</br>
 - []()</br>
 - []()</br>
 - []()</br>
@@ -33,11 +33,12 @@
 - [4、spring-boot-thymeleaf](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-thymeleaf)：Spring Boot 使用 Thymeleaf 详细示例</br>
 - [5、spring-boot-jpa](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-jpa)：Spring Boot 使用 Jpa 各种示例</br>
 - [6、spring-boot-mybatis](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis)：注解版本+Xml 配置版本</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
+- [7、spring-boot-mybatis](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis)：Spring Boot + Mybatis (注解版+Xml版）多数据源最简解决方案</br>
+- [8、spring-boot-rabbitmq](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-rabbitmq)</br>
+- [9、spring-boot-scheduler](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-scheduler)</br>
+- [10、spring-boot-mail](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mail)</br>
+- [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)</br>
+- [12、spring-boot-package](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package)</br>
 - []()</br>
 - []()</br>
 - []()</br>
