@@ -34,7 +34,7 @@
 - [5、spring-boot-jpa](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-jpa)：Spring Boot 使用 Jpa 各种示例</br>
 - [6、spring-boot-mybatis](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis)：注解版本+Xml 配置版本</br>
 - [7、spring-boot-mybatis](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mybatis)：Spring Boot + Mybatis (注解版+Xml版）多数据源最简解决方案</br>
-- [8、spring-boot-rabbitmq](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-rabbitmq)</br>
+- [8、spring-boot-rabbitmq](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-rabbitmq)：Spring Boot 和 Rabbitmq 各种消息应用案例</br>
 - [9、spring-boot-scheduler](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-scheduler)</br>
 - [10、spring-boot-mail](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mail)</br>
 - [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)</br>
