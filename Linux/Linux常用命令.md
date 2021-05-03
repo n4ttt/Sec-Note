@@ -97,3 +97,8 @@ head [选项] 文件名     --显示文件前n行。
 tail [选项] 文件名     --显示文件后n行。
     选项-nK，表示输出最后K行，如果是-n+K表示从文件第K行输出；-cK，输出文件最后K个字节内容，-c+K表示从文件第K个字节开始输出；-f，输出文件变化后新增加的数据
 ```
+
+### (七)rabbitmq
+>重启rabbitmq服务通过两个命令来实现：</br>
+    rabbitmqctl stop ：停止rabbitmq
+    rabbitmq-server restart : 重启rabbitmq
