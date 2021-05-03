@@ -100,5 +100,5 @@ tail [选项] 文件名     --显示文件后n行。
 
 ### (七)rabbitmq
 >重启rabbitmq服务通过两个命令来实现：</br>
-    >>rabbitmqctl stop ：停止rabbitmq</br>
-    >>rabbitmq-server restart : 重启rabbitmq</br>
+>>rabbitmqctl stop ：停止rabbitmq</br>
+>>rabbitmq-server restart : 重启rabbitmq</br>
