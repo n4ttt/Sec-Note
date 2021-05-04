@@ -5,7 +5,7 @@
 - **做好规划；**</br>
 - **记录成长；**</br>
 - **督促自己：不断积累、不断总结、不能懈怠！**</br>
-<img src="https://github.com/nathanzeng001/Sec-Note/blob/main/image/111.jpg"  height="330" width="495">
+<img src="https://github.com/nathanzeng001/Sec-Note/blob/main/Image/111.jpg"  height="330" width="495">
 
 ## **Contents**
 - ***Java***<br>
