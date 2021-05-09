@@ -37,7 +37,7 @@
 - [8、spring-boot-rabbitmq](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-rabbitmq)：Spring Boot 和 Rabbitmq 各种消息应用案例</br>
 - [9、spring-boot-scheduler](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-scheduler)：Spring Boot 和定时任务案例</br>
 - [10、spring-boot-mail](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mail)：Spring Boot 和邮件服务</br>
-- [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)</br>
+- [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)：Spring Boot 和 Mongodb 的使用</br>
 - [12、spring-boot-package](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package)</br>
 - []()</br>
 - []()</br>
