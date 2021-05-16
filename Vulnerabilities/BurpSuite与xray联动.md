@@ -19,4 +19,4 @@ xray_windows_amd64.exe webscan --listen 127.0.0.1:9998 --html-output 111.html
 - （3）访问目标网站，在BurpSuite的Target选项上找到目标网站，右键，开始爬虫扫描；xray就会自动扫描；
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities3.png height="450" width="700">
 - （4）xray扫描结束，将结果文件打开进行分析。
-<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities4.png height="450" width="700">
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities4.png height="450" width="850">
