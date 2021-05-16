@@ -13,3 +13,4 @@ xray_windows_amd64.exe webscan --listen 127.0.0.1:9998 --html-output 111.html
 在用户选项中添加代理服务器，填入端口和ip地址，如下图所示：</br>
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities2.png>
 
+## (三)联动使用
