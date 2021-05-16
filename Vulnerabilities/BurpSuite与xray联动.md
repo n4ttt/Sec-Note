@@ -7,7 +7,7 @@ xray_windows_amd64.exe webscan --listen 127.0.0.1:9998 --html-output 111.html
 --listen 监听端口   
 --html-output 将扫描结果导出到html文件
 ```
-<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities1.png>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities1.png height="330" width="495">
 
 ## (二)BurpSuite配置代理服务器
 在用户选项中添加代理服务器，填入端口和ip地址，如下图所示：</br>
