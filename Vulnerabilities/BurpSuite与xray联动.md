@@ -18,5 +18,5 @@ xray_windows_amd64.exe webscan --listen 127.0.0.1:9998 --html-output 111.html
 - （2）按照步骤（二）配置BurpSuite的代理服务器；BurpSuite的每个传出请求会被发送到此代理服务器；
 - （3）访问目标网站，在BurpSuite的Target选项上找到目标网站，右键，开始爬虫扫描；xray就会自动扫描；
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities3.png>
-- （4）xray扫描结束，将结果文件打开进行分析：
+- （4）xray扫描结束，将结果文件打开进行分析。
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities4.png>
