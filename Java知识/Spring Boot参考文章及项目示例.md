@@ -12,20 +12,15 @@
 - [Spring Boot (十)：邮件服务](http://www.ityouknow.com/springboot/2017/05/06/spring-boot-mail.html)</br>
 - [Spring Boot(十一)：Spring Boot 中 MongoDB 的使用](http://www.ityouknow.com/springboot/2017/05/08/spring-boot-mongodb.html)</br>
 - [Spring Boot(十二)：Spring Boot 如何测试打包部署](http://www.ityouknow.com/springboot/2017/05/09/spring-boot-deploy.html)</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
+- [Spring Boot(十三)：Spring Boot 小技巧](http://www.ityouknow.com/springboot/2017/06/22/spring-boot-tips.html)</br>
+- [Spring Boot(十四)：Spring Boot 整合 Shiro-登录认证和权限管理](http://www.ityouknow.com/springboot/2017/06/26/spring-boot-shiro.html)</br>
+- [Spring Boot(十五)：Spring Boot + Jpa + Thymeleaf 增删改查示例](http://www.ityouknow.com/springboot/2017/09/23/spring-boot-jpa-thymeleaf-curd.html)</br>
+- [Spring Boot(十六)：使用 Jenkins 部署 Spring Boot](http://www.ityouknow.com/springboot/2017/11/11/spring-boot-jenkins.html)</br>
+- [Spring Boot(十七)：使用 Spring Boot 上传文件](http://www.ityouknow.com/springboot/2018/01/12/spring-boot-upload-file.html)</br>
+- [Spring Boot(十八)：使用 Spring Boot 集成 FastDFS](http://www.ityouknow.com/springboot/2018/01/16/spring-boot-fastdfs.html)</br>
+- [Spring Boot(十九)：使用 Spring Boot Actuator 监控应用](http://www.ityouknow.com/springboot/2018/02/06/spring-boot-actuator.html)</br>
+- [Spring Boot(二十)：使用 spring-boot-admin 对 Spring Boot 服务进行监控](http://www.ityouknow.com/springboot/2018/02/11/spring-boot-admin.html)</br>
+
 ### **示例代码**
 - [1、spring-boot-helloWorld](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-helloWorld)：Spring Boot 的 hello World 版本</br>
 - [2、spring-boot-web](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-web)：Spring Boot Web 开发综合示例</br>
@@ -47,9 +42,5 @@
 - []()</br>
 - []()</br>
 - []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
+
+
