@@ -34,8 +34,8 @@
 - [10、spring-boot-mail](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mail)：Spring Boot 和邮件服务</br>
 - [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)：Spring Boot 和 Mongodb 的使用</br>
 - [12、spring-boot-package](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package)：Spring Boot 如何测试打包部署</br>
-- []()</br>
-- []()</br>
+- [13、]()</br>
+- [14、spring-boot-shiro](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-shiro)</br>
 - []()</br>
 - []()</br>
 - []()</br>
