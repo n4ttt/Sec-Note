@@ -35,7 +35,7 @@
 - [11、spring-boot-mongodb](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-mongodb)：Spring Boot 和 Mongodb 的使用</br>
 - [12、spring-boot-package](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package)：Spring Boot 如何测试打包部署</br>
 - [13、]()</br>
-- [14、spring-boot-shiro](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-shiro)</br>
+- [14、spring-boot-shiro](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-shiro)：Spring Boot 整合 Shiro-登录认证和权限管理</br>
 - []()</br>
 - []()</br>
 - []()</br>
