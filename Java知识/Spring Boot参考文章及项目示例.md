@@ -36,11 +36,9 @@
 - [12、spring-boot-package](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-package)：Spring Boot 如何测试打包部署</br>
 - [13、]()</br>
 - [14、spring-boot-shiro](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-shiro)：Spring Boot 整合 Shiro-登录认证和权限管理</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-- []()</br>
-
-
+- [15、spring-boot-jpa-thymeleaf-curd](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-jpa-thymeleaf-curd)：Spring Boot + Jpa + Thymeleaf 增删改查示例</br>
+- [16、]()</br>
+- [17、spring-boot-file-upload](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-file-upload)：使用 Spring Boot 上传文件</br>
+- [18、spring-boot-fastDFS](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-fastDFS)：使用 Spring Boot 集成 FastDFS</br>
+- [19、spring-boot-actuator](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-actuator)：使用 Spring Boot Actuator 监控应用</br>
+- [20、spring-boot-admin-simple](https://github.com/ityouknow/spring-boot-examples/tree/master/spring-boot-admin-simple)：使用 spring-boot-admin 对 Spring Boot 服务进行监控</br>
