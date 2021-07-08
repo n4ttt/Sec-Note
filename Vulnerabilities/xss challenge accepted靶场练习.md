@@ -49,7 +49,7 @@ payload：1" oonnmouseover="alert(1)
 ```
   
 ## level8
-先输入一些关键字符”<scripT><oNerror><a Href>""''“，测试防御情况，看到关键字都被转义，看到a标签考虑使用”<a href="javascript:alert(1)"></a>“，页面有回显的超链接，想办法将script转码一下。</br>
+先输入一些关键字符[<scripT><oNerror><a Href>""'']，测试防御情况，看到关键字都被转义，看到a标签考虑使用”<a href="javascript:alert(1)"></a>“，页面有回显的超链接，想办法将script转码一下。</br>
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(6).png height="300" width="650"></br>
 尝试用如下方式对标签属性值进行转码：</br>
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(7).png></br>
