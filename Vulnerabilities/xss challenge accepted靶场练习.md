@@ -41,7 +41,7 @@ payload：1"><scRipt>alert(1)</scRipt>
 ```
 
 ## level7
-输入<script><onerror><a hRef>测试，发现对关键字进行了过滤，且大小写不能绕过：</br>
+输入<script>&lt;onerror&gt;&lt;a hRef&gt;测试，发现对关键字进行了过滤，且大小写不能绕过：</br>
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(5).png height="300" width="650"></br>
 发现对关键字只进行了一次过滤，可以对关键字双写绕过：</br>
 ```java
