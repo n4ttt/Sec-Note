@@ -76,7 +76,13 @@ Chrome下：alt+X (Chrome未测试成功) </br>
 payload：?t_sort=1"%20accesskey="X"%20onclick="alert(1)
 ```
 
-
+## level11
+此题比较注入点隐晦，比较难以发现。首先右键查看页面源代码分析，多了一个t_ref隐藏域，进一步分析它是由请求头中的Referer字段取值而来，而且只能从请求头中取Referer值，不能由URL传值；另外我们知道Referer字段是可以伪造的，那么我们可以使用BurpSuite来抓包伪造Referer字段来构造payload。</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(9).png></br>
+```java
+payload：Referer: 1" type="txt" oninput="alert(888)
+```
+这种构造，会将t_ref隐藏域在页面显现，on事件触发条件为在输入框中输入任意值即触发XSS。</br>
 
 
 
