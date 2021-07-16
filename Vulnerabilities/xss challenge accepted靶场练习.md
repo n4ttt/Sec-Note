@@ -107,8 +107,11 @@ payload：src="javascript:alert(666)"
 ```
 
 ## level15
-
-
+与上一关相似，修改响应包数据：</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(12).png height="300" width="650"></br>
+```
+payload："><script>alert(1)</script><"
+```
 
 
 
