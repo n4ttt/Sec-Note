@@ -120,7 +120,7 @@ payload：?keyword=<img%0dsrc=a%0donerror=alert(1)>
 ```
 
 ## level17
-从上一关跳转到本关，URL中有两个参数?arg01=a&arg02=b；右键查看源码，是embed标签，它支持on事件，所以在参数b后面空格注入on事件构造payload。
+从上一关跳转到本关，URL中有两个参数?arg01=a&arg02=b；右键查看源码，是embed标签，它支持on事件，可以在参数b后面空格注入on事件构造payload。
 ```
 payload：?arg01=a&arg02=b%20onmousedown=alert(1)
 ```
