@@ -126,6 +126,16 @@ payload：?arg01=a&arg02=b%20onmousedown=alert(1)
 ```
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(13).png></br>
 
+## level 18
+与上一关相同，看了代码也是一样的。</br>
+```
+payload：?arg01=a&arg02=b%20onmouseup=alert(1)
+```
+
+## level19
+与上面一关解题思路一样，但是输入内容被加了双引号，使用双引号闭合却发现双引号被转义：</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(14).png></br>
+
 
 
 
