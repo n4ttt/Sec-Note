@@ -136,6 +136,111 @@ payload2：?arg01=%20onmouseup&arg02=alert(1)
 ## level19
 与上面一关解题思路一样，但是输入内容被加了双引号，使用双引号闭合却发现双引号被转义：</br>
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(14).png></br>
+到了这一关卡，使用Google Chrome和FireFox浏览器已经不能满足题目环境要求了，因为这最后两关卡涉及Flash XSS，需要浏览器支持Flash文件。我们下载QQ浏览器并安装Flash再来看题目，并且学习Flash XSS的知识：https://www.secpulse.com/archives/44299.html。</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(15).png></br>
+看本关的页面看不出来任何东西，重点还是需要看xsf03.swf这个文件本身，专门下载一个编辑Flash文件.swf的软件JPEXSFreeFlashDecompiler来查看代码：</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(16).png></br>
+xsf03.swf文件打开后里面有一系列文件，我们重点看脚本中的sIFR.js文件，几个关键变量复制出来：</br>
+```
+static var DEFAULT_TEXT = "Rendered with sIFR 3, revision 436<br><strong>Rendered with sIFR 3, revision 436</strong><br><em>Rendered with sIFR 3, revision 436</em><br><strong><em>Rendered with sIFR 3, revision 436</em></strong>";
+static var VERSION_WARNING = "Movie (436) is incompatible with sifr.js (%s). Use movie of %s.<br><strong>Movie (436) is incompatible with sifr.js (%s). Use movie of %s.</strong><br><em>Movie (436) is incompatible with sifr.js (%s). Use movie of %s.</em><br><strong><em>Movie (436) is incompatible with sifr.js (%s). Use movie of %s.</em></strong>";
+static var VERSION = "436";
+```
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(17).png></br>
+继续看上图中的逻辑代码，大致意思是入参version如果等于436，页面显示DEFAULT_TEXT内容；如果入参version不等于436，则页面显示VERSION_WARNING内容，注意VERSION_WARNING内容包含一个未过滤的version入参。</br>
+再回到本关内容，根据前两关思路，继续利用arg01和arg02两个参数构造测试：</br>
+```?arg01=version&arg02=436```
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(18).png></br>
+```?arg01=version&arg02=888```
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(19).png></br>
+```最终构造出payload：?arg01=version&arg02=<a href="javascript:alert(1)">888</a>```
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(20).png></br>
+
+## level20
+借鉴博客：https://blog.csdn.net/u014029795/article/details/103217680</br>
+先使用软件JPEXSFreeFlashDecompiler把xsf04.swf中的关键代码拿出来：</br>
+```
+package
+{
+   import flash.display.LoaderInfo;
+   import flash.display.Sprite;
+   import flash.display.StageScaleMode;
+   import flash.events.Event;
+   import flash.events.MouseEvent;
+   import flash.external.ExternalInterface;
+   import flash.system.Security;
+   import flash.system.System;
+   
+   public class ZeroClipboard extends Sprite
+   {  
+      private var button:Sprite;
+      
+      private var id:String = "";
+      
+      private var clipText:String = "";
+      
+      public function ZeroClipboard()
+      {
+         super();
+         stage.scaleMode = StageScaleMode.EXACT_FIT;
+         Security.allowDomain("*");
+         var flashvars:Object = LoaderInfo(this.root.loaderInfo).parameters;
+         id = flashvars.id;
+         button = new Sprite();
+         button.buttonMode = true;
+         button.useHandCursor = true;
+         button.graphics.beginFill(13434624);
+         button.graphics.drawRect(0,0,Math.floor(flashvars.width),Math.floor(flashvars.height));
+         button.alpha = 0;
+         addChild(button);
+         button.addEventListener(MouseEvent.CLICK,clickHandler);
+         button.addEventListener(MouseEvent.MOUSE_OVER,function(param1:Event):*
+         {
+            ExternalInterface.call("ZeroClipboard.dispatch",id,"mouseOver",null);
+         });
+         button.addEventListener(MouseEvent.MOUSE_OUT,function(param1:Event):*
+         {
+            ExternalInterface.call("ZeroClipboard.dispatch",id,"mouseOut",null);
+         });
+         button.addEventListener(MouseEvent.MOUSE_DOWN,function(param1:Event):*
+         {
+            ExternalInterface.call("ZeroClipboard.dispatch",id,"mouseDown",null);
+         });
+         button.addEventListener(MouseEvent.MOUSE_UP,function(param1:Event):*
+         {
+            ExternalInterface.call("ZeroClipboard.dispatch",id,"mouseUp",null);
+         });
+         ExternalInterface.addCallback("setHandCursor",setHandCursor);
+         ExternalInterface.addCallback("setText",setText);
+         ExternalInterface.call("ZeroClipboard.dispatch",id,"load",null);
+      }
+      
+      public function setHandCursor(param1:Boolean) : *
+      {
+         button.useHandCursor = param1;
+      }
+      
+      private function clickHandler(param1:Event) : void
+      {
+         System.setClipboard(clipText);
+         ExternalInterface.call("ZeroClipboard.dispatch",id,"complete",clipText);
+      }
+      
+      public function setText(param1:*) : *
+      {
+         clipText = param1;
+      }
+   }
+}
+```
+
+
+
+
+
+
+
+
 
 
 
