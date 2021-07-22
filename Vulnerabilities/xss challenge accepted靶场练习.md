@@ -149,11 +149,17 @@ static var VERSION = "436";
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(17).png></br>
 继续看上图中的逻辑代码，大致意思是入参version如果等于436，页面显示DEFAULT_TEXT内容；如果入参version不等于436，则页面显示VERSION_WARNING内容，注意VERSION_WARNING内容包含一个未过滤的version入参。</br>
 再回到本关内容，根据前两关思路，继续利用arg01和arg02两个参数构造测试：</br>
-```?arg01=version&arg02=436```
+```
+?arg01=version&arg02=436
+```
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(18).png></br>
-```?arg01=version&arg02=888```
+```
+?arg01=version&arg02=888
+```
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(19).png></br>
-```最终构造出payload：?arg01=version&arg02=<a href="javascript:alert(1)">888</a>```
+```
+最终构造出payload：?arg01=version&arg02=<a href="javascript:alert(1)">888</a>
+```
 <img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(20).png></br>
 
 ## level20
