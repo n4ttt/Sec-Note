@@ -18,7 +18,7 @@ docker info				docker系统信息
 docker 命令 --help		docker帮助命令
 ```
 
-帮助文档地址：
+帮助文档地址：https://docs.docker.com/engine/reference/commandline/docker/
 
 ### 镜像命令
 
@@ -39,8 +39,6 @@ SIZE		镜像的大小
 # 可选项
 -a,--all		# 列出所有的镜像
 -q,--quiet		# 只显示镜像的id
-
-
 ```
 
 docker search 	搜索镜像
@@ -50,7 +48,6 @@ docker search
 
 # 可选项，通过收藏进行过滤
 --failter=stars=3000		搜索出来的镜像stars大于3000的
-
 ```
 
 docker pull	下载镜像
@@ -192,24 +189,17 @@ root@b59e7086cc30:/#
 ```
 
 **从容器内拷贝文件到主机上**
-
 ```shell
 docker cp 容器id:容器内路径 主机目录
 [root@dodo~]#docker cp a0211adcd3d0:/root/111.java /opt/
 ```
 
-
-
-
-
 ### docker可视化
-
 #### **什么是portainer？**
 
 docker run -d -p 8088:9000 \
 
 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true portainer/portainer
-
 
 
 ## docker镜像
@@ -234,8 +224,6 @@ docker commit	提交容器成为一个新的副本
 # 命令和git原理类似
 docker commit -m="提交的描述信息" -a="作者" 容器id 目标镜像名:[TAG]
 ```
-
-
 
 ## 容器数据卷
 
@@ -263,18 +251,6 @@ docker run -it -v 主机目录：容器目录
 ```
 
 
-
-
-
-
-
 ## dockerfile
 
-
-
-
-
 ## docker网络
-
-
-
