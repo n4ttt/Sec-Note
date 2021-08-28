@@ -1,16 +1,16 @@
-## docker概述
+## 一、docker概述
 
 
 
-## docker安装
+## 二、docker安装
 
 安装文档官方地址：
 
 
 
-## docker命令
+## 三、docker命令
 
-### 帮助命令
+### 1、帮助命令
 
 ```shell
 docker version			docker版本
@@ -20,7 +20,7 @@ docker 命令 --help		docker帮助命令
 
 帮助文档地址：https://docs.docker.com/engine/reference/commandline/docker/
 
-### 镜像命令
+### 2、镜像命令
 
 docker images	查看所有本地的主机上的镜像
 
@@ -69,7 +69,7 @@ docker rmi -f $(docker images -aq)		# 删除全部容器
 
 
 
-### 容器命令
+### 3、容器命令
 
 **说明：有了镜像才能创建容器**
 
@@ -132,7 +132,7 @@ docker stop			# 停止当前正在运行的容器
 docker kill			# 强制停止当前容器
 ```
 
-### 常用其他命令
+### 4、常用其他命令
 
 **后台启动容器**
 
@@ -194,7 +194,7 @@ docker cp 容器id:容器内路径 主机目录
 [root@dodo~]#docker cp a0211adcd3d0:/root/111.java /opt/
 ```
 
-### docker可视化
+### 5、docker可视化
 #### **什么是portainer？**
 
 docker run -d -p 8088:9000 \
@@ -202,7 +202,7 @@ docker run -d -p 8088:9000 \
 --restart=always -v /var/run/docker.sock:/var/run/docker.sock --privileged=true portainer/portainer
 
 
-## docker镜像
+## 四、docker镜像
 
 **镜像是什么？**
 
@@ -225,7 +225,7 @@ docker commit	提交容器成为一个新的副本
 docker commit -m="提交的描述信息" -a="作者" 容器id 目标镜像名:[TAG]
 ```
 
-## 容器数据卷
+## 五、容器数据卷
 
 ### 什么是容器数据卷
 
@@ -251,6 +251,6 @@ docker run -it -v 主机目录：容器目录
 ```
 
 
-## dockerfile
+## 六、dockerfile
 
-## docker网络
+## 七、docker网络
