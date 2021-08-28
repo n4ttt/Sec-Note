@@ -1,15 +1,15 @@
 ## python requests
-### requests几种使用方式
+### 一、requests几种使用方式
 ```python
->>> import requests
->>> r = requests.get('https://api.github.com/events')
->>> r = requests.post('http://httpbin.org/post', data = {'key':'value'})
->>> r = requests.put('http://httpbin.org/put', data = {'key':'value'})
->>> r = requests.delete('http://httpbin.org/delete')
->>> r = requests.head('http://httpbin.org/get')
->>> r = requests.options('http://httpbin.org/get')
+import requests
+r = requests.get('https://api.github.com/events')
+r = requests.post('http://httpbin.org/post', data = {'key':'value'})
+r = requests.put('http://httpbin.org/put', data = {'key':'value'})
+r = requests.delete('http://httpbin.org/delete')
+r = requests.head('http://httpbin.org/get')
+r = requests.options('http://httpbin.org/get')
 ```
-### 爬取百度主页
+### 二、爬取百度主页
 ```python
 import requests
 
@@ -25,7 +25,7 @@ print(type(response.text))  # <class 'str'>
 with open('baidu.html', 'w', encoding='utf-8') as f:
     f.write(response.text)
 ```
-### GET请求讲解
+### 三、GET请求讲解
 #### params请求参数
 ```python
 import requests
@@ -82,7 +82,7 @@ github_res = requests.get(url, headers=headers, cookies=cookies)
 
 print('15622792660' in github_res.text)
 ```
-### response响应
+### 四、response响应
 ```python
 import requests
 
@@ -105,8 +105,43 @@ print(response.cookies.items())  # 获取cookies信息转换成字典
 print(response.encoding)  # 字符编码
 print(response.elapsed)  # 访问时间
 ```
-### requests高级用法
-#### 超时设置
+### 五、requests高级用法
+#### 1、文件上传
+```python
+import requests
+url = "http://httpbin.org/post"
+files= {"files":open("test.jpg","rb")}
+response = requests.post(url,files=files)
+print(response.text)
+```
+#### 2、获取cookie
+```python
+import requests
+response = requests.get('https://www.baidu.com')
+print(response.cookies)
+for key,value in response.cookies.items():
+    print(key,'==',value)
+```
+#### 3、会话维持
+cookie的一个作用就是可以用于模拟登陆，做会话维持<br>
+```python
+import requests
+session = requests.session()
+session.get('http://httpbin.org/cookies/set/number/12456')
+response = session.get('http://httpbin.org/cookies')
+print(response.text)
+```
+#### 4、证书验证
+关闭证书验证,消除验证证书的警报<br>
+```python
+from requests.packages import urllib3
+import requests
+ 
+urllib3.disable_warnings()
+response = requests.get('https://www.12306.cn',verify=False)
+print(response.status_code)
+````
+#### 5、超时设置
 ```python
 # 超时设置
 # 两种超时:float or tuple
@@ -118,7 +153,7 @@ import requests
 response = requests.get('https://www.baidu.com',
                         timeout=0.0001)
 ```
-#### 使用代理
+#### 6、使用代理
 ```python
 # 官网链接: http://docs.python-requests.org/en/master/user/advanced/#proxies
 
@@ -146,5 +181,3 @@ respone=requests.get('https://www.12306.cn',
 
 print(respone.status_code)
 ```
-
-
