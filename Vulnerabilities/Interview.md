@@ -333,21 +333,21 @@ web运营商：移动，联通<br>
 CDN运营商：阿里云，电信<br>
 
 ### 45.	给你一个网站你是如何来渗透测试的? 
-在获取书面授权的前提下： <br>
+在获取书面授权的前提下：<br>
 (1)信息收集<br>
 - 1、google hack 和fofa进一步探测网站的信息，后台，敏感文件 <br>
 - 2、网站指纹识别（包括cms ，cdn ，服务器操作系统版本，数据库版本，web 中间件，证书等）<br>
 - 3、找真实IP ，进行IP 地址端口扫描，对响应的端口进行漏洞探测，比如 rsync, 心脏出血，mysql,ftp,ssh 弱口令等。 <br>
 - 4、查询服务器旁站以及子域名站点，因为主站一般比较难，所以先看看旁站有没有通用性的 cms 或者其他漏洞。<br>
 - 5、扫描网站目录结构，看看是否可以遍历目录，或者敏感文件泄漏，比如php 探针 <br><br>
-(2)漏洞扫描和手工挖掘 <br>
+(1)漏洞扫描和手工挖掘 <br>
 开始检测漏洞，如 XSS,XSRF,sql 注入，代码执行，命令执行，越权访问，目录读取，任意文件读取，下载，文件包含， 远程命令执行，弱口令，上传， 编辑器漏洞，暴力破解等 <br><br>
-(3)漏洞利用 <br>
+(1)漏洞利用 <br>
 利用以上的方式拿到 webshell ，或者其他权限 <br><br>
-(4)权限提升 <br>
+(1)权限提升 <br>
 提权服务器，比如 windows 下 mysql 的 udf 提权，serv-u 提权，windows低版本的漏洞，如 iis6,pr,巴西烤肉， linux 脏牛漏洞，linux 内核版本漏洞提权，linux 下的 mysql system 提权以及 oracle 低权限提权 <br><br>
-(5)日志清理，history历史清理，文件~/.bash_history <br><br>
-(6)总结报告及修复方案<br>
+(1)日志清理，history历史清理，文件~/.bash_history <br><br>
+(1)总结报告及修复方案<br>
 ### 46.	Metasploit 打开反向监听的命令<br>
 use exploit/multi/handler<br>
 set payload windows/meterpreter/reverse_tcp<br>
