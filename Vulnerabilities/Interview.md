@@ -171,6 +171,8 @@ SSRF是服务器端请求伪造，由服务器发起<br>
 通过地址栏，手动输入；从书签里面选择；通过实现设定好的手势。上面说的这三种都是用户自己去操作，因此不算CSRF。<br>
 
 跨协议间提交请求。常见的协议：ftp://,http://,https://,file://,javascript:,data:.最简单的情况就是我们在本地打开一个HTML页面，这个时候浏览器地址栏是file://开头的，如果这个HTML页面向任何http站点提交请求的话，这些请求的Referer都是空的。那么我们接下来可以利用data:协议来构造一个自动提交的CSRF攻击。当然这个协议是IE不支持的，我们可以换用javascript:<br>
+
+
 #### ✸	同源策略，跨域请求（CSRF中讲）
 同源就是两个站有相同的协议、域名、端口；<br>
 JSONP 是一种非官方的跨域数据交互协议。<br>
@@ -300,7 +302,7 @@ nmap -sP x.x.x.x/24 PING扫描，扫描内网在线主机，利用网络层ICMP�
 nmap -sU x.x.x.x UDP扫描，扫描主机打开的UDP端口，利用传输层的协议<br>
 nmap -sS x.x.x.x TCP SYN半开放扫描，好处是不需要进行三次握手，不会留下日志信息<br>
 nmap -sT x.x.x.x TCP Connect扫描，执行三次握手<br>
-（3）版本侦测 <br><br>
+（3）版本侦测 <br>
 nmap -sV x.x.x.x 版本探测<br>
 （4）OS侦测<br>
 
