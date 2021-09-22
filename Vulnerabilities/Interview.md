@@ -270,49 +270,6 @@ eval,preg_replace+/e,assert,call_user_func,call_user_func_array,create_function 
 
 img 标签除了 onerror 属性外，还有其他获取管理员路径的办法吗？ <br>
 src 指定一个远程的脚本文件，获取 referer <br>
-
-### 4、工具
-#### ✸	用过wireshark吗？用burpsuite抓过包吗？
-（1）Fiddler 是以代理web服务器的形式工作的,它使用代理地址:127.0.0.1, 端口:8888. 当开启Fiddler会自动设置代理， 退出的时候它会自动注销代理。<br>
-（2）wireshark是捕获机器上的某一块网卡的网络包。<br>
-
-流量分析---wireshark简单的过滤规则<br>
-过滤ip:<br>
-过滤源ip地址:ip.src==1.1.1.1;,目的ip地址:ip.dst==1.1.1.1;<br>
-过滤端口:<br>
-过滤80端口:tcp.port==80,源端口:tcp.srcport==80,目的端口:tcp.dstport==80<br>
-协议过滤:<br>
-直接输入协议名即可,如http协议http<br>
-http模式过滤:<br>
-过滤get/post包http.request.mothod=="GET/POST"<br>
-
-Buipsuite插件<br>
-Autorize —— 强大的越权自动化测试工具<br>
-在插件中设置一个低权限账号的 cookie，使用高权限的账户浏览所有功能。插件会自动用低权限账号重放请求，<br>
-Turbo Intruder —— 短时间发送大量请求，增强版的intruder<br>
-
-#### ✸	AWVS为什么不能扫描一些逻辑漏洞？
-网络漏洞扫描工具，它通过网络爬虫测试你的网站安全，检测流行安全漏洞<br>
-
-#### ✸	nmap 扫描的几种方式? 
-Nmap功能的实现基于各种层面的协议。<br>
-（1）主机发现 <br>
-nmap -sP x.x.x.x/24 PING扫描，扫描内网在线主机，利用网络层ICMP协议<br>
-（2）端口扫描<br>
-nmap -sU x.x.x.x UDP扫描，扫描主机打开的UDP端口，利用传输层的协议<br>
-nmap -sS x.x.x.x TCP SYN半开放扫描，好处是不需要进行三次握手，不会留下日志信息<br>
-nmap -sT x.x.x.x TCP Connect扫描，执行三次握手<br>
-（3）版本侦测 <br>
-nmap -sV x.x.x.x 版本探测<br>
-（4）OS侦测<br>
-
-#### ✸	MYSQL 有哪些提权方法？ 
-（1 ）UDF 提权 <br>
-（2 ）VBS 启动项提权 <br>
-（3 ）Linx MySQL BackDoor 提权 <br>
-（4 ）MIX.DLL 提权 <br>
-
-
 #### ✸	owasp 漏洞都有哪些？ 
 (1)SQL 注入防护方法： <br>
 (2)失效的身份认证和会话管理 <br>
@@ -361,6 +318,45 @@ CDN运营商：阿里云，电信<br>
 ### 46.	Metasploit 打开反向监听的命令<br>
 use exploit/multi/handler<br>
 set payload windows/meterpreter/reverse_tcp<br>
+
+### 4、工具
+#### ✸	用过wireshark吗？用burpsuite抓过包吗？
+（1）Fiddler 是以代理web服务器的形式工作的,它使用代理地址:127.0.0.1, 端口:8888. 当开启Fiddler会自动设置代理， 退出的时候它会自动注销代理。<br>
+（2）wireshark是捕获机器上的某一块网卡的网络包。<br>
+
+流量分析---wireshark简单的过滤规则<br>
+过滤ip:<br>
+过滤源ip地址:ip.src==1.1.1.1;,目的ip地址:ip.dst==1.1.1.1;<br>
+过滤端口:<br>
+过滤80端口:tcp.port==80,源端口:tcp.srcport==80,目的端口:tcp.dstport==80<br>
+协议过滤:<br>
+直接输入协议名即可,如http协议http<br>
+http模式过滤:<br>
+过滤get/post包http.request.mothod=="GET/POST"<br>
+
+Buipsuite插件<br>
+Autorize —— 强大的越权自动化测试工具<br>
+在插件中设置一个低权限账号的 cookie，使用高权限的账户浏览所有功能。插件会自动用低权限账号重放请求，<br>
+Turbo Intruder —— 短时间发送大量请求，增强版的intruder<br>
+
+#### ✸	AWVS为什么不能扫描一些逻辑漏洞？
+网络漏洞扫描工具，它通过网络爬虫测试你的网站安全，检测流行安全漏洞<br>
+#### ✸	nmap 扫描的几种方式? 
+Nmap功能的实现基于各种层面的协议。<br>
+（1）主机发现 <br>
+nmap -sP x.x.x.x/24 PING扫描，扫描内网在线主机，利用网络层ICMP协议<br>
+（2）端口扫描<br>
+nmap -sU x.x.x.x UDP扫描，扫描主机打开的UDP端口，利用传输层的协议<br>
+nmap -sS x.x.x.x TCP SYN半开放扫描，好处是不需要进行三次握手，不会留下日志信息<br>
+nmap -sT x.x.x.x TCP Connect扫描，执行三次握手<br>
+（3）版本侦测 <br>
+nmap -sV x.x.x.x 版本探测<br>
+（4）OS侦测<br>
+#### ✸	MYSQL 有哪些提权方法？ 
+（1 ）UDF 提权 <br>
+（2 ）VBS 启动项提权 <br>
+（3 ）Linx MySQL BackDoor 提权 <br>
+（4 ）MIX.DLL 提权 <br>
 
 ### 5、语言
 #### ✸	java执行命令的函数？
