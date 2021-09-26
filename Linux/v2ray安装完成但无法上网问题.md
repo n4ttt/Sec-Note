@@ -22,7 +22,8 @@ Jan 03 19:11:26 VJP v2ray[16814]: An unified platform for anti-censorship.
 ```
 root@xxx:~# netstat -apn | grep v2ray
 tcp6       0      0 :::21xxx                :::*                    LISTEN      22194/v2ray
-unix  3      [ ]         STREAM     CONNECTED     788043   22194/v2ray```
+unix  3      [ ]         STREAM     CONNECTED     788043   22194/v2ray
+```
 看来可能是v2ray获取IP导致的问题，这样我们能不能指定IP让v2ray去监听？</br>
 
 按照文档中说的，我们可以在配置文件中添加一个listen字段，用于指定v2ray监听指定的IP。</br>
