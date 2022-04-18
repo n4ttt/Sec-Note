@@ -8,7 +8,7 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/1.png height="300" width="650">
 首先使用常规POC，可使用BurpSuite的“Engagement Tools-Generate CSRF PoC”功能生成，如下：</br>
 
-```
+```html
 <html>
 <body>
 	<form name="zzz" action="https://aaa.com" method="POST" enctype="text/plain">
@@ -38,7 +38,7 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 
 所以在此场景下，这一思路是行不通的。但是更多的情况下服务端可能不会校验Content-Type，或者不会严格校验Content-Type是否为application/json，所以很多情况下这是可用的。</br>
 新的POC如下：</br>
-```
+```html
 <html>
 <body>
 	<script>
