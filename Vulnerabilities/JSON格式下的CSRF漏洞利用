@@ -1,2 +1,4 @@
 ## JSON格式下的CSRF漏洞利用
-### hello
+### 介绍
+GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造。</br>
+但是在POST类型的接口或者URL中，会出现一种JSON格式的入参，构造POC有一些注意点，这里主要对此做一些记录。</br>
