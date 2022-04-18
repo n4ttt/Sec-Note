@@ -7,13 +7,10 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 #### （一）常规POC
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/1.png height="300" width="650">
 首先使用常规POC，可使用BurpSuite的“Engagement Tools-Generate CSRF PoC”功能生成，如下：</br>
+
 ```
 <html>
 <body>
-	<script>
-		history.pushState('','','/');
-	</script>
-	
 	<form name="zzz" action="https://aaa.com" method="POST" enctype="text/plain">
 		<input type="hidden" name='json入参' value='json入参产生“=”，此处设法闭合'/>
 	</form>
