@@ -30,7 +30,7 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 
 #### （二）通过XHR提交
 上述（一）最后如果还是响应415状态码，那么可能就是服务端校验了Content-Type类型，该请求字段只能为application/json。如此，可通过XHR提交入参，如下所述。</br>
-在通过HTML form提交生成的POST请求中，请求头的Content-Type由<form>元素上的enctype属性指定;现在enctype只有如下三种属性值：</br>
+在通过HTML form提交生成的POST请求中，请求头的Content-Type由form元素上的enctype属性指定;现在enctype只有如下三种属性值：</br>
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/3.png height="300" width="650">
 其中text/plain可以满足JSON入参类型，但是其在用户请求时，相应请求体字段自动转换为了application/x-www-form-urlencoded。如下：</br>
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/5.png height="300" width="650">
