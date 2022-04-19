@@ -24,7 +24,7 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 使用上述常规POC会发现，响应报415，“Unsupported Media Type”，意为不支持的媒体类型;</br>
 这是由于HTML文件中“enctype="text/plain"”造成的。</br>
 抓包可以看到JSON入参后面跟了一个“=”符号。</br>
-<img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/2.png height="300" width="650">
+<img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/2.png height="300" width="650"></br>
 这种情况下，这种情况下服务端的JSON解析器可能会拒绝这段JSON，因为它不符合JSON的数据格式。 这时候我们可以给value赋值从而对=后的数据进行补全，使其构造成一个完整的json格式，可以避免解析器报错。具体的构造由name和value两个入参来进行，将"="封进JSON的入参中去，效果如下：</br>
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/Vulnerabilities/csrf/4.png height="300" width="650">
 
