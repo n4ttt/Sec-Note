@@ -64,4 +64,4 @@ GET型的CSRF一般比较简单，这里介绍POST型的CSRF漏洞的POC构造�
 1.制作一个Flash文件</br>
 2.制作一个跨域XML文件</br>
 3.制作一个具有307状态码的php文件</br>
-已经有大牛造好轮子了，参考：https://github.com/sp1d3r/swf_json_csrf</br>
+已经有大牛造好轮子了，参考：https://www.jianshu.com/p/d063a222f5a5</br>
