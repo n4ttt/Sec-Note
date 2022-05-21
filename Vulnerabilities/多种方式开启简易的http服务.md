@@ -8,8 +8,8 @@
 (python2):python2 -m SimpleHTTPServer 9999；
 (python3):python3 -m http.server 9999
 ```
-Linux客户端命令行下载文件：wget http://192.168.100.100:9999/abc.txt</br>
-Windows客户端网址输入即下载文件：http://192.168.100.100:9999/abc.txt
+Linux客户端命令行下载文件：wget http://<span></span>192.168.100.100:9999/abc.txt</br>
+Windows客户端网址输入即下载文件：http://<span></span>192.168.100.100:9999/abc.txt
 
 ### 2.使用PHP
 ```shell
