@@ -1,5 +1,5 @@
 ## OWASP top10有哪些？
-
+<img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/owasp.png>
 ### A1:2017-注入
 将不受信任的数据作为命令或查询的一部分发送到解析器时，会产生诸如SQL注入、NoSQL注入、OS注入和LDAP注入的注入缺陷。</br>
 SQL注入等；防御对用户传入信息进行过滤，数据库权限控制，web目录权限控制等。</br>
