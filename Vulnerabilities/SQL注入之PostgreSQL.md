@@ -28,3 +28,13 @@ and (select+ascii(substr(column_name,1,1)) information_schema.columns where tabl
 
 ### 四、时间盲注
 
+### 五、PostgreSQL语法注意
+此数据库有一个特性，使用like查询子句时，比如：
+```SQL
+where aaa like '%aaa%';
+```
+这里单引号可以使用$$代替，如:
+```SQL
+where aaa like $$%aaa%$$;
+```
+但是暂时不知道原因！
