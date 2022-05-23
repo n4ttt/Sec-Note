@@ -68,7 +68,7 @@ where aaa like $$%aaa%$$;
  parameter = 1' and '1'='1#and -> or
  parameter = 1' and '1'='2#and -> or
  ```
-或者引号区分发（适用于字符串）
+或者引号区分法（适用于字符串）
 ```SQL
  parameter = 1    #Success
  parameter = 1'   #Failed
