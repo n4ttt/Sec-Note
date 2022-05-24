@@ -1,14 +1,15 @@
-        ___</br>
-       __H__</br>
- ___ ___["]_____ ___ ___  {1.6#stable}</br>
-|_ -| . [']     | .'| . |</br>
-|___|_  [)]_|_|_|__,|  _|</br>
-      |_|V...       |_|   https://sqlmap.org</br>
-
-Usage: sqlmap.py [options]</br>
+```shell
+        ___
+       __H__
+ ___ ___["]_____ ___ ___  {1.6#stable}
+|_ -| . [']     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+```
+Usage: sqlmap.py [options]
 
 Options:
-```
+```shell
   -h, --help            Show basic help message and exit
   -hh                   Show advanced help message and exit
   --version             Show program's version number and exit
@@ -17,7 +18,7 @@ Options:
 ##  Target:
     At least one of these options has to be provided to define the
     target(s)
-```
+```shell
     -u URL, --url=URL   Target URL (e.g. "http://www.site.com/vuln.php?id=1")
     -d DIRECT           Connection string for direct database connection
     -l LOGFILE          Parse target(s) from Burp or WebScarab proxy log file
@@ -28,7 +29,7 @@ Options:
 ```
 ##  Request:
     These options can be used to specify how to connect to the target URL
-```
+```shell
     -A AGENT, --user..  HTTP User-Agent header value
     -H HEADER, --hea..  Extra header (e.g. "X-Forwarded-For: 127.0.0.1")
     --method=METHOD     Force usage of given HTTP method (e.g. PUT)
@@ -81,7 +82,7 @@ Options:
 ```
 ##  Optimization:
     These options can be used to optimize the performance of sqlmap
-```
+```shell
     -o                  Turn on all optimization switches
     --predict-output    Predict common queries output
     --keep-alive        Use persistent HTTP(s) connections
