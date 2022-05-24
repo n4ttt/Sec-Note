@@ -1,11 +1,11 @@
-        ___
-       __H__
- ___ ___["]_____ ___ ___  {1.6#stable}
-|_ -| . [']     | .'| . |
-|___|_  [)]_|_|_|__,|  _|
-      |_|V...       |_|   https://sqlmap.org
+        ___</br>
+       __H__</br>
+ ___ ___["]_____ ___ ___  {1.6#stable}</br>
+|_ -| . [']     | .'| . |</br>
+|___|_  [)]_|_|_|__,|  _|</br>
+      |_|V...       |_|   https://sqlmap.org</br>
 
-Usage: sqlmap.py [options]
+Usage: sqlmap.py [options]</br>
 
 Options:
 ```
