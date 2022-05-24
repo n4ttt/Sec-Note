@@ -10,9 +10,9 @@ Usage: sqlmap.py [options]
 
 ## Options:
 
-  -h, --help            Show basic help message and exit
-  -hh                   Show advanced help message and exit
-  --version             Show program's version number and exit
+  -h, --help            Show basic help message and exit<br>
+  -hh                   Show advanced help message and exit<br>
+  --version             Show program's version number and exit<br>
   -v VERBOSE            Verbosity level: 0-6 (default 1)
 
 ##  一、Target:目标，注入目标的格式的选项
