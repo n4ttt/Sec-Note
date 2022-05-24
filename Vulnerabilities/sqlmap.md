@@ -19,11 +19,11 @@ Usage: sqlmap.py [options]
     At least one of these options has to be provided to define the
     target(s)
 
-    **-u URL**, --url=URL   Target URL (e.g. "http://www.site.com/vuln.php?id=1")，常用的方式，后面跟攻击目标的URL
+    -u URL, --url=URL   Target URL (e.g. "http://www.site.com/vuln.php?id=1")，常用的方式，后面跟攻击目标的URL
     -d DIRECT           Connection string for direct database connection
     -l LOGFILE          Parse target(s) from Burp or WebScarab proxy log file
     -m BULKFILE         Scan multiple targets given in a textual file
-    **-r REQUESTFILE**      Load HTTP request from a file，常用的方式，可以将POST类型的请求包存在TXT文件中，后面跟路径文件
+    -r REQUESTFILE      Load HTTP request from a file，常用的方式，可以将POST类型的请求包存在TXT文件中，后面跟路径文件
     -g GOOGLEDORK       Process Google dork results as target URLs
     -c CONFIGFILE       Load options from a configuration INI file
 
@@ -35,13 +35,13 @@ Usage: sqlmap.py [options]
     --method=METHOD     Force usage of given HTTP method (e.g. PUT)，请求方式，GET、POST、PUT等等
     --data=DATA         Data string to be sent through POST (e.g. "id=1")
     --param-del=PARA..  Character used for splitting parameter values (e.g. &)
-    **--cookie=COOKIE**     HTTP Cookie header value (e.g. "PHPSESSID=a8d127e..")，常用参数，携带认证凭据
+    --cookie=COOKIE     HTTP Cookie header value (e.g. "PHPSESSID=a8d127e..")，常用参数，携带认证凭据
     --cookie-del=COO..  Character used for splitting cookie values (e.g. ;)
     --live-cookies=L..  Live cookies file used for loading up-to-date values
     --load-cookies=L..  File containing cookies in Netscape/wget format
     --drop-set-cookie   Ignore Set-Cookie header from response
     --mobile            Imitate smartphone through HTTP User-Agent header
-    **--random-agent**      Use randomly selected HTTP User-Agent header value，随机使用一个user-agent
+    --random-agent      Use randomly selected HTTP User-Agent header value，随机使用一个user-agent
     --host=HOST         HTTP Host header value
     --referer=REFERER   HTTP Referer header value
     --headers=HEADERS   Extra headers (e.g. "Accept-Language: fr\nETag: 123")
@@ -52,7 +52,7 @@ Usage: sqlmap.py [options]
     --ignore-proxy      Ignore system default proxy settings
     --ignore-redirects  Ignore redirection attempts
     --ignore-timeouts   Ignore connection timeouts
-    **--proxy=PROXY**       Use a proxy to connect to the target URL，常用参数，代理，有socks5://127.0.0.1:1089或者http://127.0.0.1.8090
+    --proxy=PROXY       Use a proxy to connect to the target URL，常用参数，代理，有socks5://127.0.0.1:1089或者http://127.0.0.1.8090
     --proxy-cred=PRO..  Proxy authentication credentials (name:password)
     --proxy-file=PRO..  Load proxy list from a file
     --proxy-freq=PRO..  Requests between change of proxy from a given list
@@ -60,8 +60,8 @@ Usage: sqlmap.py [options]
     --tor-port=TORPORT  Set Tor proxy port other than default
     --tor-type=TORTYPE  Set Tor proxy type (HTTP, SOCKS4 or SOCKS5 (default))
     --check-tor         Check to see if Tor is used properly
-    **--delay=DELAY**       Delay in seconds between each HTTP request，常用参数，可以设定两个HTTP(S)请求间的延迟，后面直接跟数字
-    **--timeout=TIMEOUT**   Seconds to wait before timeout connection (default 30)，常用参数，
+    --delay=DELAY       Delay in seconds between each HTTP request，常用参数，可以设定两个HTTP(S)请求间的延迟，后面直接跟数字
+    --timeout=TIMEOUT   Seconds to wait before timeout connection (default 30)，常用参数，
     --retries=RETRIES   Retries when the connection timeouts (default 3)
     --retry-on=RETRYON  Retry request on regexp matching content (e.g. "drop")
     --randomize=RPARAM  Randomly change value for given parameter(s)
@@ -139,34 +139,34 @@ Usage: sqlmap.py [options]
 ##  七、Fingerprint:指纹
     -f, --fingerprint   Perform an extensive DBMS version fingerprint
 
-##  八、Enumeration:
+##  八、Enumeration:枚举
     These options can be used to enumerate the back-end database
     management system information, structure and data contained in the
     tables
 
     -a, --all           Retrieve everything
     -b, --banner        Retrieve DBMS banner
-    --current-user      Retrieve DBMS current user
-    --current-db        Retrieve DBMS current database
-    --hostname          Retrieve DBMS server hostname
-    --is-dba            Detect if the DBMS current user is DBA
-    --users             Enumerate DBMS users
-    --passwords         Enumerate DBMS users password hashes
-    --privileges        Enumerate DBMS users privileges
+    --current-user      Retrieve DBMS current user，获取当前用户名称
+    --current-db        Retrieve DBMS current database，获取当前数据库名称
+    --hostname          Retrieve DBMS server hostname，当前主机名
+    --is-dba            Detect if the DBMS current user is DBA，检测当前用户是否是数据库管理权限
+    --users             Enumerate DBMS users，获取当前DBMS所有用户
+    --passwords         Enumerate DBMS users password hashes，获取当前所有dbms用户密码
+    --privileges        Enumerate DBMS users privileges，查看用户权限(–privileges -U root) -U #指定数据库用户
     --roles             Enumerate DBMS users roles
-    --dbs               Enumerate DBMS databases
-    --tables            Enumerate DBMS database tables
-    --columns           Enumerate DBMS database table columns
-    --schema            Enumerate DBMS schema
-    --count             Retrieve number of entries for table(s)
-    --dump              Dump DBMS database table entries
+    --dbs               Enumerate DBMS databases，常用参数，查询数据库
+    --tables            Enumerate DBMS database tables，常用参数，查表
+    --columns           Enumerate DBMS database table columns，常用参数，查列名
+    --schema            Enumerate DBMS schema，枚举模式列表下包含的所有数据库 表 列 以及它们的类型
+    --count             Retrieve number of entries for table(s)，只计算表的数量
+    --dump              Dump DBMS database table entries，下载数据，慎用，用前先看法律
     --dump-all          Dump all DBMS databases tables entries
     --search            Search column(s), table(s) and/or database name(s)
     --comments          Check for DBMS comments during enumeration
     --statements        Retrieve SQL statements being run on DBMS
-    -D DB               DBMS database to enumerate
-    -T TBL              DBMS database table(s) to enumerate
-    -C COL              DBMS database table column(s) to enumerate
+    -D DB               DBMS database to enumerate，指定数据库
+    -T TBL              DBMS database table(s) to enumerate，指定表名
+    -C COL              DBMS database table column(s) to enumerate，指定列名
     -X EXCLUDE          DBMS database identifier(s) to not enumerate
     -U USER             DBMS user to enumerate
     --exclude-sysdbs    Exclude DBMS system databases when enumerating tables
@@ -177,36 +177,36 @@ Usage: sqlmap.py [options]
     --first=FIRSTCHAR   First query output word character to retrieve
     --last=LASTCHAR     Last query output word character to retrieve
     --sql-query=SQLQ..  SQL statement to be executed
-    --sql-shell         Prompt for an interactive SQL shell
+    --sql-shell         Prompt for an interactive SQL shell，执行SQL
     --sql-file=SQLFILE  Execute SQL statements from given file(s)
 
-##  九、Brute force:
+##  九、Brute force:暴力校验
     These options can be used to run brute force checks
 
     --common-tables     Check existence of common tables
     --common-columns    Check existence of common columns
     --common-files      Check existence of common files
 
-##  十、User-defined function injection:
+##  十、User-defined function injection:自定义函数注入
     These options can be used to create custom user-defined functions
 
     --udf-inject        Inject custom user-defined functions
     --shared-lib=SHLIB  Local path of the shared library
 
-##  十一、File system access:
+##  十一、File system access:访问文件系统
     These options can be used to access the back-end database management
     system underlying file system
 
-    --file-read=FILE..  Read a file from the back-end DBMS file system
-    --file-write=FIL..  Write a local file on the back-end DBMS file system
-    --file-dest=FILE..  Back-end DBMS absolute filepath to write to
+    --file-read=FILE..  Read a file from the back-end DBMS file system，重要参数，读取对应文件 （绝对路径）
+    --file-write=FIL..  Write a local file on the back-end DBMS file system，重要参数
+    --file-dest=FILE..  Back-end DBMS absolute filepath to write to，重要参数，写入文件 与--file_write一起写
 
-##  十二、Operating system access:
+##  十二、Operating system access:操作系统访问
     These options can be used to access the back-end database management
     system underlying operating system
 
     --os-cmd=OSCMD      Execute an operating system command
-    --os-shell          Prompt for an interactive operating system shell
+    --os-shell          Prompt for an interactive operating system shell，重要参数，执行系统命令
     --os-pwn            Prompt for an OOB shell, Meterpreter or VNC
     --os-smbrelay       One click prompt for an OOB shell, Meterpreter or VNC
     --os-bof            Stored procedure buffer overflow exploitation
@@ -214,7 +214,7 @@ Usage: sqlmap.py [options]
     --msf-path=MSFPATH  Local path where Metasploit Framework is installed
     --tmp-path=TMPPATH  Remote absolute path of temporary files directory
 
-##  十三、Windows registry access:
+##  十三、Windows registry access:Windows注册表访问
     These options can be used to access the back-end database management
     system Windows registry
 
@@ -226,7 +226,7 @@ Usage: sqlmap.py [options]
     --reg-data=REGDATA  Windows registry key value data
     --reg-type=REGTYPE  Windows registry key value type
 
-##  十四、General:
+##  十四、General:通用项
     These options can be used to set some general working parameters
 
     -s SESSIONFILE      Load session from a stored (.sqlite) file
@@ -234,7 +234,7 @@ Usage: sqlmap.py [options]
     --answers=ANSWERS   Set predefined answers (e.g. "quit=N,follow=N")
     --base64=BASE64P..  Parameter(s) containing Base64 encoded data
     --base64-safe       Use URL and filename safe Base64 alphabet (RFC 4648)
-    --batch             Never ask for user input, use the default behavior
+    --batch             Never ask for user input, use the default behavior，常用参数，用于sqlmap执行过程中选择默认选项
     --binary-fields=..  Result fields having binary values (e.g. "digest")
     --check-internet    Check Internet connection before assessing the target
     --cleanup           Clean up the DBMS from sqlmap specific UDF and tables
@@ -251,7 +251,7 @@ Usage: sqlmap.py [options]
     --gpage=GOOGLEPAGE  Use Google dork results from specified page number
     --har=HARFILE       Log all HTTP traffic into a HAR file
     --hex               Use hex conversion during data retrieval
-    --output-dir=OUT..  Custom output directory path
+    --output-dir=OUT..  Custom output directory path，自定义输出目录路径
     --parse-errors      Parse and display DBMS error messages from responses
     --preprocess=PRE..  Use given script(s) for preprocessing (request)
     --postprocess=PO..  Use given script(s) for postprocessing (response)
@@ -265,7 +265,7 @@ Usage: sqlmap.py [options]
     --test-skip=TEST..  Skip tests by payloads and/or titles (e.g. BENCHMARK)
     --web-root=WEBROOT  Web server document root directory (e.g. "/var/www")
 
-##  十五、Miscellaneous:
+##  十五、Miscellaneous:杂项
     These options do not fit into any other category
 
     -z MNEMONICS        Use short mnemonics (e.g. "flu,bat,ban,tec=EU")
