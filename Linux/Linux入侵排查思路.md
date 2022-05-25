@@ -6,16 +6,16 @@
 root:x:0:0:root:/root:/bin/bash
 account:password:UID:GID:GECOS:directory:shell
 ```
-用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell
+用户名：密码：用户ID：组ID：用户说明：家目录：登陆之后shell</br>
 注意：无密码只允许本机登陆，远程不允许登陆
 #### 2、影子文件/etc/shadow
 ```shell
 root:$6$oGs1PqhL2p3ZetrE$X7o7bzoouHQVSEmSgsYN5UD4.kMHx6qgbTqwNVC5oOAouXvcjQSt.Ft7ql1WpkopY0UV9ajBwUt1DpYxTCVvI/:16809:0:99999:7:::
 ```
-用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之后的宽限天数：账号失效时间：保留
+用户名：加密密码：密码最后一次修改日期：两次密码的修改时间间隔：密码有效期：密码修改到期到的警告天数：密码过期之后的宽限天数：账号失效时间：保留</br>
 
-who 查看当前登录用户（tty本地登陆 pts远程登录）
-w 查看系统信息，想知道某一时刻用户的行为
+who 查看当前登录用户（tty本地登陆 pts远程登录）</br>
+w 查看系统信息，想知道某一时刻用户的行为</br>
 uptime 查看登陆多久、多少用户，负载
 
 **入侵排查：**
@@ -37,14 +37,14 @@ usermod -L useruserdel useruserdel -r user 禁用帐号，帐号无法登录，/
 ```
 
 ### 二、历史命令
-**基本使用：**
+**基本使用：**</br>
 通过.bash_history查看帐号执行过的系统命令
 #### 1、root的历史命令
 ```shell
 histroy
 ```
 #### 2、打开/home各帐号目录下的.bash_history，查看普通帐号的历史命令
-为历史的命令增加登录的IP地址、执行命令时间等信息：
+为历史的命令增加登录的IP地址、执行命令时间等信息：</br>
 1）保存1万条命令
 ```shell
 sed -i 's/^HISTSIZE=1000/HISTSIZE=10000/g' /etc/profile
@@ -62,12 +62,12 @@ shopt -s histappend
 export PROMPT_COMMAND="history -a"
 ######### jiagu history xianshi ##########
 ```
-3）source /etc/profile让配置生效
-生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile
-3、历史操作命令的清除：history -c
-但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。
+3）source /etc/profile让配置生效</br>
+生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile</br>
+3、历史操作命令的清除：history -c</br>
+但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。</br>
 
-**入侵排查**
+**入侵排查**</br>
 进入用户目录下
 ```shell
 cat .bash_history >> history.txt
@@ -78,7 +78,7 @@ cat .bash_history >> history.txt
 ```shell
 netstat -antlp|more
 ```
-查看下pid所对应的进程文件路径，
+查看下pid所对应的进程文件路径，</br>
 运行ls -l /proc/$PID/exe或file /proc/$PID/exe（$PID 为对应的pid 号）
 
 ### 四、进程
@@ -88,10 +88,10 @@ ps aux | grep pid
 ```
 
 ### 五、开机启动项
-**基本使用：**
+**基本使用：**</br>
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/linux.png>
 
-查看运行级别命令 runlevel
+查看运行级别命令 runlevel</br>
 系统默认允许级别
 ```shell
 vi /etc/inittab
@@ -106,9 +106,9 @@ id=3：initdefault 系统开机后直接进入哪个运行级别
 ```shell
 root@localhost ~]# ln -s /etc/init.d/sshd /etc/rc.d/rc3.d/S100ssh
 ```
-此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行级别加载时需要关闭的。
+此处sshd是具体服务的脚本文件，S100ssh是其软链接，S开头代表加载时自启动；如果是K开头的脚本文件，代表运行级别加载时需要关闭的。</br>
 
-**入侵排查：**
+**入侵排查：**</br>
 启动项文件： 
 ```shell
 more /etc/rc.local /etc/rc.d/rc[0~6].d ls -l /etc/rc.d/rc3.d/
@@ -126,14 +126,14 @@ crontab -e 	使用编辑器编辑当前的crontab文件
 如：*/1 * * * * echo "hello world" >> /tmp/test.txt 每分钟写入文件
 ```
 #### 2、利用anacron实现异步定时任务调度
-使用案例
+使用案例</br>
 每天运行 /home/backup.sh脚本： 
 ```shell
 vi /etc/anacrontab @daily 10 example.daily /bin/bash /home/backup.sh
 ```
-当机器在 backup.sh 期望被运行时是关机的，anacron会在机器开机十分钟之后运行它，而不用再等待 7天。
+当机器在 backup.sh 期望被运行时是关机的，anacron会在机器开机十分钟之后运行它，而不用再等待 7天。</br>
 
-**入侵排查：**
+**入侵排查：**</br>
 重点关注以下目录中是否存在恶意脚本
 ```shell
 /var/spool/cron/*
@@ -157,19 +157,19 @@ chkconfig –level 2345 httpd on 开启自启动
 chkconfig httpd on （默认level是2345）
 ```
 #### 第二种修改方法：
-修改/etc/re.d/rc.local 文件
+修改/etc/re.d/rc.local 文件</br>
 加入 /etc/init.d/httpd start
 #### 第三种修改方法：
-使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。
+使用ntsysv命令管理自启动，可以管理独立服务和xinetd服务。</br>
 
-**入侵排查**
+**入侵排查**</br>
 1、查询已安装的服务：
 #### RPM包安装的服务
 ```shell
 chkconfig --list 		查看服务自启动状态，可以看到所有的RPM包安装的服务
 ps aux | grep crond 	查看当前服务
 ```
-系统在3与5级别下的启动项
+系统在3与5级别下的启动项</br>
 中文环境
 ```shell
 chkconfig --list | grep "3:启用\|5:启用"
@@ -179,12 +179,12 @@ chkconfig --list | grep "3:启用\|5:启用"
 chkconfig --list | grep "3:on\|5:on"
 ```
 #### 源码包安装的服务
-查看服务安装位置 ，一般是在/user/local/
-service httpd start
+查看服务安装位置 ，一般是在/user/local/</br>
+service httpd start</br>
 搜索/etc/rc.d/init.d/ 查看是否存在
 
 ### 八、系统日志
-日志默认存放位置：/var/log/
+日志默认存放位置：/var/log/</br>
 查看日志配置情况：more /etc/rsyslog.conf
 <img src=https://github.com/n4ttt/Sec-Note/blob/main/Image/linux1.png>
 **日志分析技巧：**
