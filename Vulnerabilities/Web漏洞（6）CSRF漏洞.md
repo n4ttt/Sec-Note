@@ -11,8 +11,8 @@ CSRF攻击两个条件</br>
 ## CSRF漏洞利用
 ### （1）GET类型的CSRF
 GET型CSRF利用只需要一个HTTP请求，</br>
-正常HTTP请求页面：http://www.aaa.com/csrf.php?aaa=111</br>
-修改后的请求页面为：http://www.aaa.com/csrf.php?aaa=222，此页面发出一次请求，即完成一次攻击。
+正常HTTP请求页面：http://<span></span>www.aaa.com/csrf.php?aaa=111</br>
+修改后的请求页面为：http://<span></span>www.aaa.com/csrf.php?aaa=222，此页面发出一次请求，即完成一次攻击。
 
 ### （2）POST类型的CSRF
 利用方式通常就是一个自动提交的表单，如：
@@ -25,8 +25,7 @@ GET型CSRF利用只需要一个HTTP请求，</br>
 访问该页面后，表单会自动提交，相当于用户完成了一次POST操作。
 
 ### CSRF漏洞利用（POST请求JSON入参格式）
-详见[https://github.com/n4ttt/Sec-Note/blob/main/Vulnerabilities/CSRF%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%EF%BC%88POST%E8%AF%B7%E6%B1%82JSON%E5%85%A5%E5%8F%82%E6%A0%BC%E5%BC%8F%EF%BC%89.md]{CSRF漏洞利用（POST请求JSON入参格式）}
-
+详见(CSRF漏洞利用（POST请求JSON入参格式）)[https://github.com/n4ttt/Sec-Note/blob/main/Vulnerabilities/CSRF%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8%EF%BC%88POST%E8%AF%B7%E6%B1%82JSON%E5%85%A5%E5%8F%82%E6%A0%BC%E5%BC%8F%EF%BC%89.md]
 ### （3）CSRF与XSS漏洞结合起来利用
 攻击者可以通XSS来触发CSRF攻击，触发方法是将攻击语句复制到XSS漏洞中，即可执行成功。</br>
 参考payload：
