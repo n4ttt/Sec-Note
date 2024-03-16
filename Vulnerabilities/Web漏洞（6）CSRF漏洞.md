@@ -11,7 +11,7 @@
 ## CSRF漏洞利用
 ### （1）GET类型的CSRF
 GET型CSRF利用只需要一个HTTP请求，</br>
-正常HTTP请求页面：http://ww<span></span>w.aaa.com/csrf.php?aaa=111</br>
+正常HTTP请求页面：http://<span>w</span>ww.aaa.com/csrf.php?aaa=111</br>
 修改后的请求页面为：http://<span>w<span>ww.aaa.com/csrf.php?aaa=222，此页面发出一次请求，即完成一次攻击。
 
 ### （2）POST类型的CSRF
