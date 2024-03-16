@@ -1,6 +1,6 @@
 ## CSRF漏洞原理
 跨站请求伪造(Cross-site request forgery),攻击者利用用户已经获得的web应用程序的身份验证,诱导其执行非本意的操作。</br>
-CSRF攻击两个条件</br>
+**CSRF攻击两个条件**</br>
 （1）用户登录受信任网站A,并在本地生成cookie</br>
 （2）在不登出A的情况下,访问危险网站B
 
@@ -11,8 +11,8 @@ CSRF攻击两个条件</br>
 ## CSRF漏洞利用
 ### （1）GET类型的CSRF
 GET型CSRF利用只需要一个HTTP请求，</br>
-正常HTTP请求页面：http://<span></span>www.aaa.com/csrf.php?aaa=111</br>
-修改后的请求页面为：http://<span></span>www.aaa.com/csrf.php?aaa=222，此页面发出一次请求，即完成一次攻击。
+正常HTTP请求页面：<span>http://www.aaa.com/csrf.php?aaa=111</span></br>
+修改后的请求页面为：<span>http://www.aaa.com/csrf.php?aaa=222</span>，此页面发出一次请求，即完成一次攻击。
 
 ### （2）POST类型的CSRF
 利用方式通常就是一个自动提交的表单，如：
