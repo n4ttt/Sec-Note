@@ -64,7 +64,7 @@ export PROMPT_COMMAND="history -a"
 ```
 3）source /etc/profile让配置生效</br>
 生成效果： 1 2018-07-10 19:45:39 192.168.204.1 root source /etc/profile</br>
-3、历史操作命令的清除：history -c</br>
+#### 3、历史操作命令的清除：history -c</br>
 但此命令并不会清除保存在文件中的记录，因此需要手动删除.bash_profile文件中的记录。</br>
 
 **入侵排查**</br>
