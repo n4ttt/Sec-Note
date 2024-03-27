@@ -132,7 +132,7 @@ response = session.get('http://httpbin.org/cookies')
 print(response.text)
 ```
 #### 4、证书验证
-关闭证书验证,消除验证证书的警报<br>
+关闭证书验证,消除验证证书的警报：<br>
 ```python
 from requests.packages import urllib3
 import requests
