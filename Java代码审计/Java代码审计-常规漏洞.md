@@ -1,6 +1,8 @@
 # Java代码审计-常规漏洞
 ### **概述**
 *Java代码审计，常规漏洞XXE（外部实体注入）。*
+
+其他代码审计参考：[JAVA安全编码与代码审计](https://github.com/Cryin/Paper/blob/master/JAVA%E5%AE%89%E5%85%A8%E7%BC%96%E7%A0%81%E4%B8%8E%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1.md)
 ### **一、漏洞-XXE**
 **介绍**<br>
 XML文档结构包括XML声明、DTD文档类型定义（可选）、文档元素。文档类型定义(DTD)的作用是定义 XML 文档的合法构建模块。DTD 可以在 XML 文档内声明，也可以外部引用。<br>
