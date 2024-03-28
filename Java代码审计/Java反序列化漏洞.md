@@ -17,7 +17,22 @@ CommonsCollections组件中存在一个可以进行反射调用的方法（Invok
 fastjson的功能就是将json格式转换为类、字符串等供下一步代码的调用，或者将类、字符串等数据转换成json数据进行传输，有点类似序列化的操作。
 
 ### 分类
+常见的Java反序列化漏洞包括：</br>
 
+1、Apache Commons Collections 反序列化漏洞（CVE-2015-7501）</br>
+[https://www.cnblogs.com/200knownsec/p/9082071.html]</br>
+
+2、Spring RMI反序列化漏洞</br>
+
+3、shiro反序列化漏洞</br>
+
+4、fastjson反序列化</br>
+
+5、WebLogic XMLDecoder 反序列化漏洞（CVE-2017-10271）</br>
+
+6、WebSphere 反序列化漏洞（CVE-2017-2894）</br>
+
+7、JBoss Intercepting Class Loaders 反序列化漏洞（CVE-2015-7502）</br>
 
 
 ### 漏洞利用
