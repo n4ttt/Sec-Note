@@ -4,6 +4,22 @@
 魔法函数致使反序列化过程变得可控：_construct();_destruct();_sleep();_weakup();_toString()</br>
 PHP反序列化漏洞防御：严格过滤unserialize函数的参数，及unserialize后的变量内容。</br>
 
+**JAVA WEB中的序列化和反序列化**</br>
+·  java.io.ObjectOutputStream 代表对象输出流，它的 writeObject() 方法可对参数指定的对象进行序列化，把得到的字节序列写到一个目标输出流中</br>
+
+·  java.io.ObjectInputStream 代表对象输入流，它的 readObject() 方法从一个源输入流中读取字节序列，再把它们反序列化为一个对象，并将其返回</br>
+
+只有实现了 Serializable 和 Externalizable 接口的类的对象才能被序列化和反序列化。Externalizable 接口继承自 Serializable 接口，实现 Externalizable 接口的类完全由自身来控制反序列化的行为，而实现 Serializable 接口的类既可以采用默认的反序列化方式，也可以自定义反序列化方式。</br>
+
+对象序列化包括如下步骤：</br>
+
+创建一个对象输出流，它可以包装一个其他类型的目标输出流，如文件输出流</br>
+通过对象输出流的 writeObject() 方法将对象进行序列化</br>
+对象反序列化的步骤如下：</br>
+
+创建一个对象输入流，它可以包装一个其他类型的源输入流，如文件输入流</br>
+通过对象输入流的 readObject() 方法将字节序列反序列化为对象</br>
+
 **Java反序列化漏洞</br>**
 由于很多站点或者RMI仓库等接口处存在java的反序列化功能，攻击者可以通过构造特定的恶意对象序列化后的流，让目标反序列化，从而达到自己的恶意预期行为，包括命令执行，甚至getshell等等。</br></br>
 
@@ -20,13 +36,15 @@ fastjson的功能就是将json格式转换为类、字符串等供下一步代�
 常见的Java反序列化漏洞包括：</br>
 
 1、Apache Commons Collections 反序列化漏洞（CVE-2015-7501）</br>
-[https://www.cnblogs.com/200knownsec/p/9082071.html]</br>
+https://www.cnblogs.com/200knownsec/p/9082071.html</br>
 
 2、Spring RMI反序列化漏洞</br>
 
 3、shiro反序列化漏洞</br>
+https://baijiahao.baidu.com/s?id=1738226401734568279&wfr=spider&for=pc</br>
 
 4、fastjson反序列化</br>
+https://javasec.org/java-vuls/FastJson.html
 
 5、WebLogic XMLDecoder 反序列化漏洞（CVE-2017-10271）</br>
 
@@ -34,6 +52,8 @@ fastjson的功能就是将json格式转换为类、字符串等供下一步代�
 
 7、JBoss Intercepting Class Loaders 反序列化漏洞（CVE-2015-7502）</br>
 
+8、Xstream反序列化</br>
+https://github.com/Cryin/Paper/blob/master/Xstream%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E4%BF%AE%E5%A4%8D%E6%96%B9%E6%A1%88.md</br>
 
 ### 漏洞利用
 
