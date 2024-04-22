@@ -81,7 +81,7 @@ evil.dtd内容：
 
 ## XXE漏洞的防御
 （1）禁用外部实体
-```
+```python
 //在php中，引用外部实体和libxml库有关系
 //libxml > 2.9 默认不解析外部实体
 libxml_disable_entity_loader(true);
