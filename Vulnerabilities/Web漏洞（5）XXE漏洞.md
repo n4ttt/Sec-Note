@@ -81,4 +81,17 @@ evil.dtd内容：
 
 ## XXE漏洞的防御
 （1）禁用外部实体，例如ibxml_disable_entity_loader(true)；</br>
+```
+#在php中，引用外部实体和libxml库有关系
+libxml > 2.9 默认不解析外部实体
+libxml_disable_entity_loader(true);
+
+java:
+DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
+dbf.setExpandEntityReferences(false);
+
+python:
+from lxml import etree
+xmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))
+```
 （2）过滤和验证用户提交的xml数据，防止出现非法内容；过滤关键词：<!DOCTYPE和<!ENTITY，或者SYSTEM和PUBLIC等。
