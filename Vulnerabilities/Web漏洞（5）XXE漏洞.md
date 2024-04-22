@@ -90,7 +90,7 @@ libxml_disable_entity_loader(true);
 DocumentBuilderFactory dbf =DocumentBuilderFactory.newInstance();
 dbf.setExpandEntityReferences(false);
 
-#python:
+# python:
 from lxml import etree
 xmlData = etree.parse(xmlSource,etree.XMLParser(resolve_entities=False))
 ```
