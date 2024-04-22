@@ -80,7 +80,7 @@ evil.dtd内容：
 一般都使用第二种方法，因为当文件中含有中文字符或<字符，会导致不能解析。
 
 ## XXE漏洞的防御
-（1）禁用外部实体，例如ibxml_disable_entity_loader(true)；</br>
+（1）禁用外部实体
 ```
 //在php中，引用外部实体和libxml库有关系
 //libxml > 2.9 默认不解析外部实体
